@@ -1,0 +1,6 @@
+<mat-list *ngIf="recipes" role="list">
+  <recipes-recipes-list-item *ngFor="let recipe of recipes" [recipe]="recipe"
+                             (removeRecipe)="onRemoveRecipe($event)"
+                             (showDetail)="onShowDetailOfRecipe($event)"
+                             (editRecipe)="onEditRecipe($event)"></recipes-recipes-list-item>
+</mat-list>

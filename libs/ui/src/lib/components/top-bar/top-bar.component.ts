@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'recipes-top-bar',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
+  @Input() appName = 'Recipe App';
+  @Input() icon = 'home';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

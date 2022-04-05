@@ -3,6 +3,7 @@
   "projects": {
     "data-access": "libs/data-access",
     "domain": "libs/domain",
+    "feature": "libs/feature",
     "recipes-app": "apps/recipes-app",
     "recipes-app-e2e": "apps/recipes-app-e2e",
     "ui": "libs/ui",

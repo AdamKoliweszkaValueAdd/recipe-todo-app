@@ -8,6 +8,8 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {UiModule} from "@recipes/ui";
+import {FeatureModule} from "@recipes/feature";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,9 +17,9 @@ import {UiModule} from "@recipes/ui";
     maxAge: 25, // Retains last 25 states
     logOnly: false, // Restrict extension to log-only mode
     autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-  }), BrowserAnimationsModule,UiModule],
+  }), BrowserAnimationsModule, UiModule, FeatureModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
