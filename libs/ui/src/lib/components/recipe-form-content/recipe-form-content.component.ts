@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Recipe} from "@recipes/domain";
 
 @Component({
   selector: 'recipes-recipe-form-content',
@@ -7,6 +8,10 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./recipe-form-content.component.scss']
 })
 export class RecipeFormContentComponent implements OnInit {
+
+  @Input()recipeToEdit: Recipe | undefined;
+  @Output()saveRecipe = new EventEmitter<Recipe>();
+  @Output()cancelForm = new EventEmitter<void>();
 
   ingradientIds: string[] = [];
 
@@ -55,6 +60,10 @@ export class RecipeFormContentComponent implements OnInit {
     this.recipeForm.removeControl(this.getIngradientNameFormControlName(ingradientId));
     this.recipeForm.removeControl(this.getIngradientQuantityFormControlName(ingradientId));
     this.ingradientIds = this.ingradientIds.filter(id => id !== ingradientId);
+  }
+
+  onCancelForm(){
+    this.cancelForm.emit();
   }
 
   private makeIdOfIngradient(){

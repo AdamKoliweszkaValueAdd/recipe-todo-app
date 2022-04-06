@@ -12,8 +12,10 @@ import {MatCardModule} from "@angular/material/card";
 import {FilteredRecipeListComponent} from './components/filtered-recipe-list/filtered-recipe-list.component';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { RecipeFormContentComponent } from './components/recipe-form-content/recipe-form-content.component';
+import {RecipeFormContentComponent} from './components/recipe-form-content/recipe-form-content.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
+import {MessageDialogComponent} from './components/message-dialog/message-dialog.component';
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule, MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule],
@@ -23,11 +25,15 @@ import {ReactiveFormsModule} from "@angular/forms";
     FilteredRecipeListComponent,
     ConfirmationDialogComponent,
     RecipeFormContentComponent,
+    NoRecipeChoosenComponent,
+    MessageDialogComponent,
   ],
   exports: [TopBarComponent,
     FilteredRecipeListComponent,
     ConfirmationDialogComponent,
-    RecipeFormContentComponent,]
+    RecipeFormContentComponent,
+    NoRecipeChoosenComponent,
+    MessageDialogComponent,]
 })
 export class UiModule {
 }

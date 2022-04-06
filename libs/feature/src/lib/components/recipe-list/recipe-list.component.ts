@@ -2,10 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Recipe} from "@recipes/domain";
 import {RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
-import {
-  ConfirmationDialogComponent
-} from "../../../../../ui/src/lib/components/confirmation-dialog/confirmation-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {ConfirmationDialogComponent} from "@recipes/ui";
 
 @Component({
   selector: 'recipes-recipe-list',
@@ -16,7 +15,7 @@ export class RecipeListComponent implements OnInit {
 
   searchedRecipe = new FormControl('');
 
-  constructor(private recipeFacade: RecipeFacade, public dialog: MatDialog) {
+  constructor(private recipeFacade: RecipeFacade, public dialog: MatDialog, private router: Router) {
     this.recipeFacade.getRecipeCollection({});
   }
 
@@ -40,6 +39,14 @@ export class RecipeListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(dialogResult => {
       if(dialogResult && recipe._id)this.recipeFacade.removeRecipe({id: recipe._id});
     });
+  }
+
+  onEditRecipe(recipe: Recipe){
+    this.router.navigateByUrl('edit?recipeid=' + recipe._id)
+  }
+
+  onViewDetailsOfRecipe(recipe: Recipe){
+    this.router.navigateByUrl('detail?recipeid=' + recipe._id)
   }
 
 }

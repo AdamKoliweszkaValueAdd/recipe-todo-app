@@ -1,0 +1,23 @@
+.icon-container{
+  text-align: center;
+}
+
+mat-card{
+  height: 92vh;
+}
+
+h3{
+  text-align: center;
+}
+
+.main-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.icon{
+  font-size: 20vh;
+  width: 20vh;
+}

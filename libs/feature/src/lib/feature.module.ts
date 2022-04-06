@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {UtilsModule} from "@recipes/utils";
 import {RecipeAddFormComponent} from './components/recipe-add-form/recipe-add-form.component';
 import { RecipeEditFormComponent } from './components/recipe-edit-form/recipe-edit-form.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [CommonModule,
@@ -19,7 +20,7 @@ import { RecipeEditFormComponent } from './components/recipe-edit-form/recipe-ed
     MatIconModule,
     UiModule,
     ReactiveFormsModule,
-    UtilsModule],
+    UtilsModule, RouterModule],
   declarations: [
     RecipeListComponent,
     RecipeAddFormComponent,

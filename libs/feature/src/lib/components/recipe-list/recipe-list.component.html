@@ -8,8 +8,10 @@
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
-    <recipes-filtered-recipe-list [recipes]="(recipeCollection$ | async) | filterRecipes: searchedRecipe.value" (removeRecipe)="onRemoveRecipe($event)"></recipes-filtered-recipe-list>
-    <button mat-raised-button color="primary">
+    <recipes-filtered-recipe-list [recipes]="(recipeCollection$ | async) | filterRecipes: searchedRecipe.value"
+                                  (removeRecipe)="onRemoveRecipe($event)" (editRecipe)="onEditRecipe($event)"
+                                  (showDetail)="onViewDetailsOfRecipe($event)"></recipes-filtered-recipe-list>
+    <button routerLink="add" mat-raised-button color="primary">
       Dodaj
     </button>
   </div>
