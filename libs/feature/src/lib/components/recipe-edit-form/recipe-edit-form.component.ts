@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {RecipeFacade} from "@recipes/data-access";
 
 @Component({
   selector: 'recipes-recipe-edit-form',
@@ -9,12 +10,27 @@ import {Router} from "@angular/router";
 })
 export class RecipeEditFormComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  recipeId: string | undefined;
 
-  ngOnInit(): void {
+  get recipe$() {
+    return this.recipeFacade.recipe$;
   }
 
-  onCancelForm(){
+  constructor(private recipeFacade: RecipeFacade, private route: ActivatedRoute,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => {
+          this.recipeId = params ? params["recipeid"] : null;
+          console.log(this.recipeId); // price
+          if (this.recipeId) this.recipeFacade.getRecipe({id: this.recipeId})
+        }
+      );
+  }
+
+  onCancelForm() {
     this.router.navigateByUrl('');
   }
 
