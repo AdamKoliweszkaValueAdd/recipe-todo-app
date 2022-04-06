@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Recipe} from "@recipes/domain";
 import {RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
@@ -9,7 +9,8 @@ import {ConfirmationDialogComponent} from "@recipes/ui";
 @Component({
   selector: 'recipes-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.scss']
+  styleUrls: ['./recipe-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeListComponent implements OnInit {
 

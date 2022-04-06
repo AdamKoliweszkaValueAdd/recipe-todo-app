@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'recipes-recipe-edit-form',
   templateUrl: './recipe-edit-form.component.html',
-  styleUrls: ['./recipe-edit-form.component.scss']
+  styleUrls: ['./recipe-edit-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeEditFormComponent implements OnInit {
 

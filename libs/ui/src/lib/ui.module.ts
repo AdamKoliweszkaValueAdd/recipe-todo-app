@@ -16,9 +16,13 @@ import {RecipeFormContentComponent} from './components/recipe-form-content/recip
 import {ReactiveFormsModule} from "@angular/forms";
 import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
 import {MessageDialogComponent} from './components/message-dialog/message-dialog.component';
+import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
+import {UtilsModule} from "@recipes/utils";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
-  imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule, MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule],
+  imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule,
+    MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule],
   declarations: [
     TopBarComponent,
     RecipesListItemComponent,
@@ -27,13 +31,15 @@ import {MessageDialogComponent} from './components/message-dialog/message-dialog
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
     MessageDialogComponent,
+    RecipeDetailsViewComponent,
   ],
   exports: [TopBarComponent,
     FilteredRecipeListComponent,
     ConfirmationDialogComponent,
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
-    MessageDialogComponent,]
+    MessageDialogComponent,
+    RecipeDetailsViewComponent,]
 })
 export class UiModule {
 }

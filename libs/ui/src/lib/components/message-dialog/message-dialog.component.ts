@@ -1,10 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'recipes-message-dialog',
   templateUrl: './message-dialog.component.html',
-  styleUrls: ['./message-dialog.component.scss']
+  styleUrls: ['./message-dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MessageDialogComponent implements OnInit {
 

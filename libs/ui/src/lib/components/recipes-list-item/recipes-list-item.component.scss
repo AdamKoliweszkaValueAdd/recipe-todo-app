@@ -4,7 +4,15 @@
   width: 100%;
 }
 
-.item_container:hover{
+.recipe-name-container:hover{
   color: blue;
   cursor: pointer;
+}
+
+.icon-button:hover{
+  color: blue;
+}
+
+.remove-button{
+  color: red;
 }

@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FilterRecipesPipe } from './pipes/filter-recipes.pipe';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FilterRecipesPipe} from './pipes/filter-recipes.pipe';
+import {PreparationTimePipe} from './pipes/preparation-time.pipe';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [
-    FilterRecipesPipe
+    FilterRecipesPipe,
+    PreparationTimePipe
   ],
-  exports: [FilterRecipesPipe]
+  exports: [FilterRecipesPipe, PreparationTimePipe]
 })
-export class UtilsModule {}
+export class UtilsModule {
+}

@@ -11,6 +11,7 @@ import {UtilsModule} from "@recipes/utils";
 import {RecipeAddFormComponent} from './components/recipe-add-form/recipe-add-form.component';
 import { RecipeEditFormComponent } from './components/recipe-edit-form/recipe-edit-form.component';
 import {RouterModule} from "@angular/router";
+import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 
 @NgModule({
   imports: [CommonModule,
@@ -24,11 +25,13 @@ import {RouterModule} from "@angular/router";
   declarations: [
     RecipeListComponent,
     RecipeAddFormComponent,
-    RecipeEditFormComponent
+    RecipeEditFormComponent,
+    RecipeDetailsComponent
   ],
   exports: [RecipeListComponent,
     RecipeAddFormComponent,
-    RecipeEditFormComponent]
+    RecipeEditFormComponent,
+    RecipeDetailsComponent]
 })
 export class FeatureModule {
 }

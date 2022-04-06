@@ -1,13 +1,13 @@
 <mat-list-item role="listitem" >
   <div (click)="onClickRecipe()" class="item_container">
-    <div>
+    <div class="recipe-name-container">
       {{recipe?.name}}
     </div>
     <div>
-      <button (click)="onClickEdit($event)" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <button (click)="onClickEdit($event)" mat-icon-button class="icon-button">
         <mat-icon>edit</mat-icon>
       </button>
-      <button (click)="onClickRemove($event)" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <button (click)="onClickRemove($event)" mat-icon-button class="icon-button remove-button">
         <mat-icon>delete_forever</mat-icon>
       </button>
     </div>

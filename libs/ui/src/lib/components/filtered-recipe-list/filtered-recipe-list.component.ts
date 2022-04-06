@@ -1,10 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Recipe} from "@recipes/domain";
 
 @Component({
   selector: 'recipes-filtered-recipe-list',
   templateUrl: './filtered-recipe-list.component.html',
-  styleUrls: ['./filtered-recipe-list.component.scss']
+  styleUrls: ['./filtered-recipe-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FilteredRecipeListComponent implements OnInit {
 

@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>Szczegóły przepisu</mat-card-title>
+  <ng-container *ngIf="recipe$ | async as recipe">
+    <recipes-recipe-details-view [recipe]="recipe"></recipes-recipe-details-view>
+    <div class="option-buttons">
+      <button mat-raised-button color="primary" (click)="onEditRecipe(recipe)">Edytuj</button>
+      <button mat-raised-button color="warn" (click)="onRemoveRecipe(recipe)">Usuń</button>
+    </div>
+  </ng-container>
+</mat-card>

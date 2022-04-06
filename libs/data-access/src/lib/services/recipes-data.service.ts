@@ -4,7 +4,6 @@ import { Recipe } from '@recipes/domain';
 import {Observable, of} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { GetRecipeRequestPayload } from '../resources/request-payloads/get-recipe.request-payload';
-import { GetRecipeCollectionRequestPayload } from '../resources/request-payloads/get-recipe-collection.request-payload';
 import { CreateRecipeRequestPayload } from '../resources/request-payloads/create-recipe.request-payload';
 import { UpdateRecipeRequestPayload } from '../resources/request-payloads/update-recipe.request-payload';
 import { RemoveRecipeRequestPayload } from '../resources/request-payloads/remove-recipe.request-payload';
@@ -17,8 +16,8 @@ export class RecipesDataService {
   readonly endpoints = {
     getRecipe: 'https://crudcrud.com/api/8d98125312c64ad186d648e9431780b1',
     getRecipeCollection: 'https://crudcrud.com/api/8d98125312c64ad186d648e9431780b1',
-    createRecipe: '',
-    updateRecipe: '',
+    createRecipe: 'https://crudcrud.com/api/8d98125312c64ad186d648e9431780b1',
+    updateRecipe: 'https://crudcrud.com/api/8d98125312c64ad186d648e9431780b1',
     removeRecipe: 'https://crudcrud.com/api/8d98125312c64ad186d648e9431780b1'
   };
   endpoint = '';
@@ -32,19 +31,19 @@ export class RecipesDataService {
   }
 
   editRecipe(recipeId: string, data: Recipe): Observable<Recipe> {
-    return this.http.put<Recipe>(this.endpoint + '/' + recipeId, data);
+    return this.http.put<Recipe>(this.endpoint + '/' + recipeId, data).pipe(map(r => this.fakedRecipes.filter(r => r._id === recipeId)[0]));
   }
 
   getRecipe(payload: GetRecipeRequestPayload): Observable<Recipe> {
-    return this.http.get<Recipe>(this.endpoints.getRecipe);
+    return this.http.get<Recipe>(this.endpoints.getRecipe).pipe(map(r => this.fakedRecipes.filter(r => r._id === payload.id)[0]));
   }
 
   createRecipe(payload: CreateRecipeRequestPayload): Observable<Recipe> {
-    return this.http.post<Recipe>(this.endpoints.createRecipe, payload.data);
+    return this.http.post<Recipe>(this.endpoints.createRecipe, payload.data).pipe(map(r => this.fakedRecipes.filter(r => r._id === payload.data._id)[0]));
   }
 
   updateRecipe(payload: UpdateRecipeRequestPayload): Observable<Recipe> {
-    return this.http.put<Recipe>(this.endpoints.updateRecipe, payload.data);
+    return this.http.put<Recipe>(this.endpoints.updateRecipe, payload.data).pipe(map(r => this.fakedRecipes.filter(r => r._id === payload.data._id)[0]));
   }
 
   removeRecipe(payload: RemoveRecipeRequestPayload): Observable<void> {

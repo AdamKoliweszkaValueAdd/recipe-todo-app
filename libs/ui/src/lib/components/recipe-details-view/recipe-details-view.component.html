@@ -1,0 +1,18 @@
+<div class="details-view-container">
+  <div class="details-view-row">
+    <div>Nazwa</div>
+    <div>{{recipe?.name}}</div>
+  </div>
+  <div class="details-view-row">
+    <div>Czas przygotowywania:</div>
+    <div>{{recipe?.preparationTimeInMinutes | preparationTime}}</div>
+  </div>
+  <div class="details-view-row">
+    <mat-divider></mat-divider>
+  </div>
+  <div class="details-view-row">Składniki:</div>
+  <div *ngFor="let ingradient of recipe?.ingradients" class="details-view-row">
+    <div>{{ingradient?.name}}</div>
+    <div>{{ingradient?.quantity}}</div>
+  </div>
+</div>
