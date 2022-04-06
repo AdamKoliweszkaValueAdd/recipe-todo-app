@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Recipe} from "@recipes/domain";
 
 @Component({
   selector: 'recipes-recipe-form-content',
   templateUrl: './recipe-form-content.component.html',
-  styleUrls: ['./recipe-form-content.component.scss']
+  styleUrls: ['./recipe-form-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeFormContentComponent implements OnInit {
 

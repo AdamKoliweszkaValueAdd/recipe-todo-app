@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {RecipeFacade} from "@recipes/data-access";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
@@ -8,7 +8,8 @@ import {MatDialog} from "@angular/material/dialog";
 @Component({
   selector: 'recipes-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+  styleUrls: ['./recipe-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeDetailsComponent implements OnInit {
   recipeId: string | undefined;

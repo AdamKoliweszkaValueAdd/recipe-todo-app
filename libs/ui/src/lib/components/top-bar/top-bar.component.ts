@@ -1,11 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {MessageDialogComponent} from "../message-dialog/message-dialog.component";
 
 @Component({
   selector: 'recipes-top-bar',
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.scss']
+  styleUrls: ['./top-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopBarComponent implements OnInit {
   @Input() appName = 'Recipe App';
