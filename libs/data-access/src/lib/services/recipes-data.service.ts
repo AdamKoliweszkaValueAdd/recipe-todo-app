@@ -7,6 +7,8 @@ import {CreateRecipeRequestPayload} from '../resources/request-payloads/create-r
 import {UpdateRecipeRequestPayload} from '../resources/request-payloads/update-recipe.request-payload';
 import {RemoveRecipeRequestPayload} from '../resources/request-payloads/remove-recipe.request-payload';
 import {fakedRecipes} from "../resources/fake-recipes";
+import {MemoizeExpiring} from "typescript-memoize";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +21,16 @@ export class RecipesDataService {
     console.log(this.baseUrl)
   }
 
+  @MemoizeExpiring(60000)
   getRecipeCollection(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.baseUrl);
+  }
+
+
+  getRecipeNamesCollection(): Observable<string[]> {
+    return this.http.get<Recipe[]>(this.baseUrl).pipe(map((recipes) => {
+      return recipes.map(r => r.name);
+    }));
   }
 
   editRecipe(recipeId: string, data: Recipe): Observable<Recipe> {

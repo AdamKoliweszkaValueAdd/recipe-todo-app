@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Ingradient, Recipe} from "@recipes/domain";
+import {UniqueRecipeNameValidatorsService} from "@recipes/utils";
 
 @Component({
   selector: 'recipes-recipe-form-content',
@@ -40,7 +41,8 @@ export class RecipeFormContentComponent implements OnInit {
     return this.recipeForm.get('description');
   }
 
-  constructor() {
+  constructor(private uniqueRecipeNameValidatorsService: UniqueRecipeNameValidatorsService) {
+    this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.validate.bind(this.uniqueRecipeNameValidatorsService)]);
   }
 
   ngOnInit(): void {
@@ -55,10 +57,13 @@ export class RecipeFormContentComponent implements OnInit {
   }
 
   onAddIngradient() {
+    console.log(this.recipeForm.touched, this.recipeForm.untouched);
     const ingradientId = this.makeId();
     this.ingradientIds.push(ingradientId);
     this.recipeForm.setControl(this.getIngradientNameFormControlName(ingradientId), new FormControl('', [Validators.required]));
     this.recipeForm.setControl(this.getIngradientQuantityFormControlName(ingradientId), new FormControl('', [Validators.required]));
+    console.log(this.recipeForm.touched, this.recipeForm.untouched);
+    this.recipeForm.markAsUntouched();
   }
 
   onRemoveIngradient(ingradientId: string) {
