@@ -34,5 +34,5 @@ export const fakedRecipes = [{
     name: 'Naleśniki',
     description: "Opis naleśników z serem i nutellą\n z nowej lini teraz",
     preparationTimeInMinutes: 80,
-    ingradients: [{_id: '1', name: 'Ciasto', quantity: '50l'}, {_id: '1', name: 'Nutella', quantity: '10ml'}]
+    ingradients: [{_id: '1', name: 'Ciasto', quantity: '50l'}, {_id: '2', name: 'Nutella', quantity: '10ml'}]
   } as Recipe];

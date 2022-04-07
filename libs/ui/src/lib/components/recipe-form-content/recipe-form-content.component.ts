@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Recipe} from "@recipes/domain";
+import {Ingradient, Recipe} from "@recipes/domain";
 
 @Component({
   selector: 'recipes-recipe-form-content',
@@ -55,7 +55,7 @@ export class RecipeFormContentComponent implements OnInit {
   }
 
   onAddIngradient() {
-    const ingradientId = this.makeIdOfIngradient();
+    const ingradientId = this.makeId();
     this.ingradientIds.push(ingradientId);
     this.recipeForm.setControl(this.getIngradientNameFormControlName(ingradientId), new FormControl('', [Validators.required]));
     this.recipeForm.setControl(this.getIngradientQuantityFormControlName(ingradientId), new FormControl('', [Validators.required]));
@@ -71,7 +71,7 @@ export class RecipeFormContentComponent implements OnInit {
     this.cancelForm.emit();
   }
 
-  private makeIdOfIngradient() {
+  private makeId() {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
@@ -117,5 +117,31 @@ export class RecipeFormContentComponent implements OnInit {
       this.recipeForm.removeControl(this.getIngradientQuantityFormControlName(ingradientId));
     })
     this.ingradientIds = [];
+  }
+
+  submitForm() {
+    if (this.recipeForm.valid && this.ingradientIds.length >= 2) {
+      const recipe = this.getRecipeData();
+      console.log(recipe);
+      this.saveRecipe.emit(recipe);
+    } else console.log('nie');
+  }
+
+  private getRecipeData(): Recipe {
+    const ingradients = this.ingradientIds.map(ingradientId => {
+      return {
+        _id: ingradientId,
+        name: this.getIngradientNameControl(ingradientId)?.value,
+        quantity: this.getIngradientQuantityControl(ingradientId)?.value,
+      } as Ingradient
+    })
+    const recipe = {
+      _id: this.recipeId ? this.recipeId : this.makeId(),
+      name: this.nameControl?.value,
+      description: this.descriptionControl?.value,
+      preparationTimeInMinutes: this.preparationTimeControl?.value,
+      ingradients: ingradients,
+    } as Recipe;
+    return recipe;
   }
 }
