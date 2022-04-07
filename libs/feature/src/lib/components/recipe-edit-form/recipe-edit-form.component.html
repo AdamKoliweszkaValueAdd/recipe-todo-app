@@ -1,5 +1,5 @@
 <mat-card>
   <mat-card-title>Edytowanie przepisu</mat-card-title>
-  <recipes-recipe-form-content [recipeToEdit]="recipe$ | async"
+  <recipes-recipe-form-content [recipeToEdit]="recipe$ | async" (saveRecipe)="onEditRecipe($event)"
                                (cancelForm)="onCancelForm()"></recipes-recipe-form-content>
 </mat-card>

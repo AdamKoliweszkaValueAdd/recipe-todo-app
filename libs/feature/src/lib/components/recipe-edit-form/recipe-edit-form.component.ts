@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeFacade} from "@recipes/data-access";
+import {Recipe} from "@recipes/domain";
 
 @Component({
   selector: 'recipes-recipe-edit-form',
@@ -34,4 +35,7 @@ export class RecipeEditFormComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
+  onEditRecipe(recipe: Recipe) {
+    this.recipeFacade.updateRecipe({data: recipe})
+  }
 }
