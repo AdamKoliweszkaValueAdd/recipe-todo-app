@@ -1,0 +1,7 @@
+{{isCreated$ | async}} {{createdError$ | async}}
+{{isRemoved$ | async}} {{removeError$ | async}}
+{{isUpdated$ | async}} {{ updatedError$ | async}}
+<recipes-status-of-message-content [recipeCreateError]="createdError$ | async"
+                                   [recipeRemoveError]="removeError$ | async"
+                                   [recipeUpdateError]="updatedError$ | async"
+                                   [isShowed]="false"></recipes-status-of-message-content>

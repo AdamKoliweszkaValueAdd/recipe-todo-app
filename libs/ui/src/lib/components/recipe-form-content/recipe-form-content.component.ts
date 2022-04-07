@@ -136,7 +136,7 @@ export class RecipeFormContentComponent implements OnInit {
       } as Ingradient
     })
     const recipe = {
-      _id: this.recipeId ? this.recipeId : this.makeId(),
+      _id: this.recipeId ? this.recipeId : undefined,
       name: this.nameControl?.value,
       description: this.descriptionControl?.value,
       preparationTimeInMinutes: this.preparationTimeControl?.value,

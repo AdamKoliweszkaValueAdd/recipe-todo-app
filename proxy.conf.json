@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://crudcrud.com/api/6d2bb6490bf34373b50388d60e40dc6c",
+    "secure": false
+  }
+}

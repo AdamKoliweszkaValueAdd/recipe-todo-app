@@ -19,6 +19,9 @@ import {MessageDialogComponent} from './components/message-dialog/message-dialog
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
 import {UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
+import {
+  StatusOfMessageContentComponent
+} from './components/status-of-message-content/status-of-message-content.component';
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule,
@@ -32,6 +35,7 @@ import {MatDividerModule} from "@angular/material/divider";
     NoRecipeChoosenComponent,
     MessageDialogComponent,
     RecipeDetailsViewComponent,
+    StatusOfMessageContentComponent,
   ],
   exports: [TopBarComponent,
     FilteredRecipeListComponent,
@@ -39,7 +43,8 @@ import {MatDividerModule} from "@angular/material/divider";
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
     MessageDialogComponent,
-    RecipeDetailsViewComponent,]
+    RecipeDetailsViewComponent,
+    StatusOfMessageContentComponent,
+  ]
 })
-export class UiModule {
-}
+export class UiModule{}
