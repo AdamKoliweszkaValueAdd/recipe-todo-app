@@ -17,7 +17,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
 import {MessageDialogComponent} from './components/message-dialog/message-dialog.component';
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
-import {UtilsModule} from "@recipes/utils";
+import {UnsavedRecipeFormGuard, UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
 import {
   StatusOfMessageContentComponent
@@ -45,6 +45,8 @@ import {
     MessageDialogComponent,
     RecipeDetailsViewComponent,
     StatusOfMessageContentComponent,
-  ]
+  ],
+  providers: [UnsavedRecipeFormGuard]
 })
-export class UiModule{}
+export class UiModule {
+}

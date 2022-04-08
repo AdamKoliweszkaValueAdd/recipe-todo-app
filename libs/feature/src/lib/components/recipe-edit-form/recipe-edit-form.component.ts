@@ -1,7 +1,8 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeFacade} from "@recipes/data-access";
 import {Recipe} from "@recipes/domain";
+import {RecipeFormContentComponent} from "@recipes/ui";
 
 @Component({
   selector: 'recipes-recipe-edit-form',
@@ -10,6 +11,9 @@ import {Recipe} from "@recipes/domain";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipeEditFormComponent implements OnInit {
+
+  @ViewChild("recipeFormContentComponent")
+  recipeFormContentComponent: RecipeFormContentComponent | undefined;
 
   recipeId: string | undefined;
 
