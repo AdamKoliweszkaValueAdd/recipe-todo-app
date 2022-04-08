@@ -1,10 +1,41 @@
-<mat-card *ngIf="isShowed" class="status-info">
-  <div class="message">
-    <mat-icon class="success-icon">check</mat-icon>
-    <div>Sukces</div>
-  </div>
-  <div class="message">
-    <mat-icon class="fail-icon">cancel</mat-icon>
-    <div>Niepowodzenie</div>
-  </div>
+<mat-card *ngIf="isShowedCreatedStatus || isShowedUpdatedStatus || isShowedRemovedStatus" class="status-info">
+  <ng-container *ngIf="isShowedCreatedStatus">
+    <div *ngIf="!recipeCreateError" class="message">
+      <mat-icon class="success-icon">check</mat-icon>
+      <div>Sukces</div>
+    </div>
+    <div *ngIf="recipeCreateError" class="message">
+      <mat-icon class="fail-icon">cancel</mat-icon>
+      <div>Niepowodzenie</div>
+    </div>
+    <div *ngIf="recipeCreateError" class="message">
+      <div>{{recipeCreateError}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isShowedUpdatedStatus">
+    <div *ngIf="!recipeUpdateError" class="message">
+      <mat-icon class="success-icon">check</mat-icon>
+      <div>Sukces</div>
+    </div>
+    <div *ngIf="recipeUpdateError" class="message">
+      <mat-icon class="fail-icon">cancel</mat-icon>
+      <div>Niepowodzenie</div>
+    </div>
+    <div *ngIf="recipeUpdateError" class="message">
+      <div>{{recipeUpdateError}}</div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isShowedRemovedStatus">
+    <div *ngIf="!recipeRemoveError" class="message">
+      <mat-icon class="success-icon">check</mat-icon>
+      <div>Sukces</div>
+    </div>
+    <div *ngIf="recipeRemoveError" class="message">
+      <mat-icon class="fail-icon">cancel</mat-icon>
+      <div>Niepowodzenie</div>
+    </div>
+    <div *ngIf="recipeRemoveError" class="message">
+      <div>{{recipeRemoveError}}</div>
+    </div>
+  </ng-container>
 </mat-card>

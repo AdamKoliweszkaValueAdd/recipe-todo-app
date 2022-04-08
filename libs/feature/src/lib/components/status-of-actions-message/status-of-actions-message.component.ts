@@ -1,22 +1,59 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {RecipeFacade} from "@recipes/data-access";
-import {forkJoin} from "rxjs";
+import {forkJoin, Subscription} from "rxjs";
 
 @Component({
   selector: 'recipes-status-of-actions-message',
   templateUrl: './status-of-actions-message.component.html',
   styleUrls: ['./status-of-actions-message.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StatusOfActionsMessageComponent implements OnInit {
+export class StatusOfActionsMessageComponent implements OnInit, OnDestroy {
+
+  subscriptionOfCreated: Subscription | undefined;
+  subscriptionOfUpdated: Subscription | undefined;
+  subscriptionOfRemoved: Subscription | undefined;
+
+  lastCreatedStatus: boolean | undefined;
+  lastUpdatedStatus: boolean | undefined;
+  lastRemovedStatus: boolean | undefined;
+
+  showCreatedStatus: boolean | undefined = false;
+  showUpdatedStatus: boolean | undefined;
+  showRemovedStatus: boolean | undefined;
 
   constructor(private recipeFacade: RecipeFacade) {
+    this.subscriptionOfCreated = this.isCreated$.subscribe(value => {
+      console.log(this.lastCreatedStatus, value);
+      if (this.lastCreatedStatus && !value) {
+        this.showRemovedStatus = false;
+        this.showUpdatedStatus = false;
+        this.showCreatedStatus = true;
+      }
+      this.lastCreatedStatus = value;
+      console.log(this.showCreatedStatus);
+    });
+    this.subscriptionOfUpdated = this.isUpdated$.subscribe(value => {
+      if (this.lastUpdatedStatus && !value) {
+        this.showRemovedStatus = false;
+        this.showCreatedStatus = false;
+        this.showUpdatedStatus = true;
+      }
+      this.lastUpdatedStatus = value;
+      console.log(this.showCreatedStatus);
+    });
+    this.subscriptionOfRemoved = this.isRemoved$.subscribe(value => {
+      if (this.lastRemovedStatus && !value) {
+        this.showCreatedStatus = false;
+        this.showUpdatedStatus = false;
+        this.showRemovedStatus = true;
+      }
+      this.lastRemovedStatus = value;
+      console.log(this.showCreatedStatus);
+    });
   }
 
   ngOnInit(): void {
-    forkJoin([this.isCreated$, this.createdError$]).subscribe(([isCreated, err]) => {
-      console.log('is created', isCreated, err);
-    })
+
   }
 
   get isCreated$() {
@@ -41,5 +78,11 @@ export class StatusOfActionsMessageComponent implements OnInit {
 
   get removeError$() {
     return this.recipeFacade.recipeRemoveError$;
+  }
+
+  ngOnDestroy() {
+    this.subscriptionOfCreated?.unsubscribe();
+    this.subscriptionOfRemoved?.unsubscribe();
+    this.subscriptionOfUpdated?.unsubscribe();
   }
 }

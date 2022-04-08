@@ -14,7 +14,7 @@ export class UniqueRecipeNameValidatorsService {
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     console.log(this);
     return this.recipesDataService.getRecipeNamesCollection().pipe(map(recipeNames => {
-      let isNotUnique = true;
+      let isNotUnique = false;
       recipeNames.forEach(name => {
         isNotUnique = isNotUnique || name.toLowerCase() === control.value.toLowerCase();
       })
