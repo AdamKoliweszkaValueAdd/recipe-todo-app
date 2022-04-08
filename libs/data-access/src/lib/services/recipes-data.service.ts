@@ -46,8 +46,10 @@ export class RecipesDataService {
   }
 
   updateRecipe(payload: UpdateRecipeRequestPayload): Observable<Recipe> {
-    const {_id, ...newDataOfRecipe} = payload.data;
-    return this.http.put<Recipe>(this.baseUrl + '/' + payload.data._id, newDataOfRecipe);
+    const newDataOfRecipe = {...payload.data, _id: undefined};
+    return this.http.put<Recipe>(this.baseUrl + '/' + payload.data._id, newDataOfRecipe).pipe(map(r => {
+      return payload.data;
+    }));
   }
 
   removeRecipe(payload: RemoveRecipeRequestPayload): Observable<void> {

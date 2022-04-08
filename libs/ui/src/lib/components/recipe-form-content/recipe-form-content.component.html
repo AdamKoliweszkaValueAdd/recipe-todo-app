@@ -3,13 +3,13 @@
     <mat-label>Nazwa przepisu</mat-label>
     <input matInput placeholder="Np. Pizza" formControlName="name">
     <mat-error
-      *ngIf="nameControl?.touched && (nameControl?.hasError('minlength') || nameControl?.hasError('maxlength'))">
+      *ngIf=" (nameControl?.hasError('minlength') || nameControl?.hasError('maxlength'))">
       Nazwa powinna mieć długość <strong>od 3 do 80 znaków</strong>
     </mat-error>
-    <mat-error *ngIf="nameControl?.touched && nameControl?.hasError('required')">
+    <mat-error *ngIf=" nameControl?.hasError('required')">
       Nazwa jest <strong>wymagana</strong>
     </mat-error>
-    <mat-error *ngIf="nameControl?.touched && nameControl?.hasError('unique')">
+    <mat-error *ngIf=" nameControl?.hasError('unique')">
       Nazwa nie jest <strong>unikalna</strong>
     </mat-error>
   </mat-form-field>
@@ -17,7 +17,7 @@
   <mat-form-field class="input-full-width" appearance="fill">
     <mat-label>Czas przygotowywania[min]</mat-label>
     <input type="number" matInput placeholder="Np. 30m" formControlName="preparationTime">
-    <mat-error *ngIf="preparationTimeControl?.touched && preparationTimeControl?.hasError('min')">
+    <mat-error *ngIf=" preparationTimeControl?.hasError('min')">
       Czas przygotowania musi być <strong>większy od 0</strong>
     </mat-error>
   </mat-form-field>
@@ -25,10 +25,10 @@
     <mat-label>Opis przepisu</mat-label>
     <textarea matInput formControlName="description"></textarea>
     <mat-error
-      *ngIf="descriptionControl?.touched && (descriptionControl?.hasError('minlength') || descriptionControl?.hasError('maxlength'))">
+      *ngIf=" (descriptionControl?.hasError('minlength') || descriptionControl?.hasError('maxlength'))">
       Opis powinnien mieć długość <strong>od 15 do 255 znaków</strong>
     </mat-error>
-    <mat-error *ngIf="descriptionControl?.touched && descriptionControl?.hasError('required')">
+    <mat-error *ngIf=" descriptionControl?.hasError('required')">
       Opis jest <strong>wymagany</strong>
     </mat-error>
   </mat-form-field>
@@ -43,7 +43,7 @@
       <mat-label>Nazwa składniku</mat-label>
       <input matInput placeholder="Np. Pieczarki" [formControlName]="'ingradient_' + ingradientId + '_name'">
       <mat-error
-        *ngIf="getIngradientNameControl(ingradientId)?.touched && getIngradientNameControl(ingradientId)?.hasError('required')">
+        *ngIf=" getIngradientNameControl(ingradientId)?.hasError('required')">
         Nazwa składniku jest <strong>wymagana</strong>
       </mat-error>
     </mat-form-field>
@@ -51,7 +51,7 @@
       <mat-label>Ilość</mat-label>
       <input matInput placeholder="Np. 300g" [formControlName]="'ingradient_' + ingradientId + '_quantity'">
       <mat-error
-        *ngIf="getIngradientQuantityControl(ingradientId)?.touched && getIngradientQuantityControl(ingradientId)?.hasError('required')">
+        *ngIf=" getIngradientQuantityControl(ingradientId)?.hasError('required')">
         Ilość składnika jest <strong>wymagana</strong>
       </mat-error>
     </mat-form-field>

@@ -13,7 +13,7 @@ export class RecipeFormContentComponent implements OnInit {
 
   @Input() set recipeToEdit(recipeToEdit: Recipe | undefined | null) {
     this.recipeId = recipeToEdit?._id;
-    if (recipeToEdit) this.initFormByRecipeData(recipeToEdit);
+    if (recipeToEdit) {this.initFormByRecipeData(recipeToEdit)};
   }
 
   @Output() saveRecipe = new EventEmitter<Recipe>();
@@ -57,12 +57,10 @@ export class RecipeFormContentComponent implements OnInit {
   }
 
   onAddIngradient() {
-    console.log(this.recipeForm.touched, this.recipeForm.untouched);
     const ingradientId = this.makeId();
     this.ingradientIds.push(ingradientId);
     this.recipeForm.setControl(this.getIngradientNameFormControlName(ingradientId), new FormControl('', [Validators.required]));
     this.recipeForm.setControl(this.getIngradientQuantityFormControlName(ingradientId), new FormControl('', [Validators.required]));
-    console.log(this.recipeForm.touched, this.recipeForm.untouched);
     this.recipeForm.markAsUntouched();
   }
 
@@ -127,7 +125,7 @@ export class RecipeFormContentComponent implements OnInit {
   submitForm() {
     if (this.recipeForm.valid && this.ingradientIds.length >= 2) {
       const recipe = this.getRecipeData();
-      console.log(recipe);
+      this.recipeForm.markAsPristine();
       this.saveRecipe.emit(recipe);
     } else console.log('nie');
   }
