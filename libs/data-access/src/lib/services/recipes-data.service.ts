@@ -27,9 +27,11 @@ export class RecipesDataService {
   }
 
 
-  getRecipeNamesCollection(): Observable<string[]> {
-    return this.http.get<Recipe[]>(this.baseUrl).pipe(map((recipes) => {
-      return recipes.map(r => r.name);
+  getRecipeNamesCollection(): Observable<{ name: string, _id: string }[]> {
+    return this.http.get<{ name: string, _id: string }[]>(this.baseUrl).pipe(map((recipes) => {
+      return recipes.map((r) => {
+        return {name: r.name, _id: r._id}
+      });
     }));
   }
 

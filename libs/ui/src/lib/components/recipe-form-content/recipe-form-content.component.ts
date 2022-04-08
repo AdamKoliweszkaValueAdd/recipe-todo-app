@@ -13,7 +13,12 @@ export class RecipeFormContentComponent implements OnInit {
 
   @Input() set recipeToEdit(recipeToEdit: Recipe | undefined | null) {
     this.recipeId = recipeToEdit?._id;
-    if (recipeToEdit) {this.initFormByRecipeData(recipeToEdit)};
+    if (recipeToEdit) {
+      this.initFormByRecipeData(recipeToEdit);
+      this.uniqueRecipeNameValidatorsService.recipeId = recipeToEdit._id;
+    } else {
+      this.uniqueRecipeNameValidatorsService.recipeId = undefined;
+    }
   }
 
   @Output() saveRecipe = new EventEmitter<Recipe>();
