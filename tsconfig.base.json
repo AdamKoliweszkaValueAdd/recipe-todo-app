@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@recipes/data-access": ["libs/web/data-access/src/index.ts"],
-      "@recipes/domain": ["libs/web/domain/src/index.ts"],
-      "@recipes/feature": ["libs/web/feature/src/index.ts"],
-      "@recipes/ui": ["libs/web/ui/src/index.ts"],
-      "@recipes/utils": ["libs/web/utils/src/index.ts"]
+      "@recipes/data-access": ["libs/web/recipes/data-access/src/index.ts"],
+      "@recipes/domain": ["libs/web/recipes/domain/src/index.ts"],
+      "@recipes/feature": ["libs/web/recipes/feature/src/index.ts"],
+      "@recipes/ui": ["libs/web/recipes/ui/src/index.ts"],
+      "@recipes/utils": ["libs/web/recipes/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
