@@ -1,12 +1,12 @@
 {
   "version": 2,
   "projects": {
-    "data-access": "libs/data-access",
-    "domain": "libs/domain",
-    "feature": "libs/feature",
+    "data-access": "libs/web/data-access",
+    "domain": "libs/web/domain",
+    "feature": "libs/web/feature",
     "recipes-app": "apps/recipes-app",
     "recipes-app-e2e": "apps/recipes-app-e2e",
-    "ui": "libs/ui",
-    "utils": "libs/utils"
+    "ui": "libs/web/ui",
+    "utils": "libs/web/utils"
   }
 }
