@@ -8,6 +8,10 @@
     "recipes-app-e2e": "apps/recipes-app-e2e",
     "ui": "libs/web/recipes/ui",
     "utils": "libs/web/recipes/utils",
+    "web-recipes-feature-add": "libs/web/recipes/feature-add",
+    "web-recipes-feature-details": "libs/web/recipes/feature-details",
+    "web-recipes-feature-edit": "libs/web/recipes/feature-edit",
+    "web-recipes-feature-list": "libs/web/recipes/feature-list",
     "web-recipes-shell": "libs/web/recipes/shell"
   }
 }

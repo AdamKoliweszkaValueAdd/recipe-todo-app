@@ -20,6 +20,18 @@
       "@recipes/feature": ["libs/web/recipes/feature/src/index.ts"],
       "@recipes/ui": ["libs/web/recipes/ui/src/index.ts"],
       "@recipes/utils": ["libs/web/recipes/utils/src/index.ts"],
+      "@recipes/web/recipes/feature-add": [
+        "libs/web/recipes/feature-add/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-details": [
+        "libs/web/recipes/feature-details/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-edit": [
+        "libs/web/recipes/feature-edit/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-list": [
+        "libs/web/recipes/feature-list/src/index.ts"
+      ],
       "@recipes/web/recipes/shell": ["libs/web/recipes/shell/src/index.ts"]
     }
   },

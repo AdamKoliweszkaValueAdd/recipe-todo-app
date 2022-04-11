@@ -22,7 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   providers: [RecipeFacade, {
     provide: "BASE_API_URL",
-    useValue: "https://crudcrud.com/api/a6469586773940fea547e1016fe24ba7/recipes"
+    useValue: "https://crudcrud.com/api/cf47328467474c42b48744650d02adb0/recipes"
   }],
 })
 export class DataAccessModule {

@@ -1,9 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {NoRecipeChoosenComponent} from "@recipes/ui";
-import {RecipeAddFormComponent, RecipeDetailsComponent, RecipeEditFormComponent} from "@recipes/feature";
 import {UnsavedRecipeFormGuard} from "@recipes/utils";
 import {MainViewComponent} from "../components/main-view/main-view.component";
+import {RecipeEditFormComponent} from "@recipes/web/recipes/feature-edit";
+import {RecipeDetailsComponent} from "@recipes/web/recipes/feature-details";
+import {RecipeAddFormComponent} from "@recipes/web/recipes/feature-add";
 
 const routes: Routes = [
   {
