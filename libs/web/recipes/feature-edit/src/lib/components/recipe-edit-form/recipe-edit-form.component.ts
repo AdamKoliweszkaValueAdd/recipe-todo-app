@@ -18,6 +18,10 @@ export class RecipeEditFormComponent implements OnInit {
 
   recipeId: string | undefined;
 
+  get recipeLoading$(){
+    return this.recipeFacade.recipeLoading$
+  }
+
   get recipe$() {
     return this.recipeFacade.recipe$;
   }

@@ -22,10 +22,12 @@ import {MatDividerModule} from "@angular/material/divider";
 import {
   StatusOfMessageContentComponent
 } from './components/status-of-message-content/status-of-message-content.component';
+import {LoadingMessageComponent} from './components/loading-message/loading-message.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule,
-    MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule],
+    MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule, MatProgressSpinnerModule],
   declarations: [
     TopBarComponent,
     RecipesListItemComponent,
@@ -36,6 +38,7 @@ import {
     MessageDialogComponent,
     RecipeDetailsViewComponent,
     StatusOfMessageContentComponent,
+    LoadingMessageComponent,
   ],
   exports: [TopBarComponent,
     FilteredRecipeListComponent,
@@ -45,6 +48,7 @@ import {
     MessageDialogComponent,
     RecipeDetailsViewComponent,
     StatusOfMessageContentComponent,
+    LoadingMessageComponent,
   ],
   providers: [UnsavedRecipeFormGuard]
 })

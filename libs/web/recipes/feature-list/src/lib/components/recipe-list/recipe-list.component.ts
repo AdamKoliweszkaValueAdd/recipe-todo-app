@@ -24,6 +24,10 @@ export class RecipeListComponent implements OnInit {
     return this.recipeFacade.recipeCollection$;
   }
 
+  get recipesCollectionLoading$(){
+    return this.recipeFacade.recipeCollectionLoading$;
+  }
+
   ngOnInit(): void {
   }
 

@@ -1,18 +1,21 @@
 <mat-card>
   <mat-card-title>Lista przepisów</mat-card-title>
-  <div class="list_container">
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label>Wyszukaj przepis</mat-label>
-      <input [formControl]="searchedRecipe" matInput type="text">
-      <button matSuffix mat-icon-button aria-label="Clear">
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
-    <recipes-filtered-recipe-list [recipes]="(recipeCollection$ | async) | filterRecipes: searchedRecipe.value"
-                                  (removeRecipe)="onRemoveRecipe($event)" (editRecipe)="onEditRecipe($event)"
-                                  (showDetail)="onViewDetailsOfRecipe($event)"></recipes-filtered-recipe-list>
-    <a routerLink="add" mat-raised-button color="primary" class="add-link">
-      Dodaj
-    </a>
-  </div>
+  <recipes-loading-message *ngIf="(recipesCollectionLoading$ | async); else recipesListContent"></recipes-loading-message>
+  <ng-template #recipesListContent>
+    <div class="list_container">
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Wyszukaj przepis</mat-label>
+        <input [formControl]="searchedRecipe" matInput type="text">
+        <button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+      <recipes-filtered-recipe-list [recipes]="(recipeCollection$ | async) | filterRecipes: searchedRecipe.value"
+                                    (removeRecipe)="onRemoveRecipe($event)" (editRecipe)="onEditRecipe($event)"
+                                    (showDetail)="onViewDetailsOfRecipe($event)"></recipes-filtered-recipe-list>
+      <a routerLink="add" mat-raised-button color="primary" class="add-link">
+        Dodaj
+      </a>
+    </div>
+  </ng-template>
 </mat-card>

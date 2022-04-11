@@ -26,6 +26,10 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
+  get recipeLoading$(){
+    return this.recipeFacade.recipeLoading$;
+  }
+
   get recipe$() {
     return this.recipeFacade.recipe$;
   }
