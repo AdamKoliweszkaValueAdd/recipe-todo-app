@@ -1,4 +1,4 @@
-import { Recipe } from '../../../../../domain/src';
+import { Recipe } from '../../index';
 
 export interface UpdateRecipeRequestPayload {
   data: Recipe;

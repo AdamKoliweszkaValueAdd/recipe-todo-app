@@ -3,12 +3,13 @@ import { select, Store } from '@ngrx/store';
 import { RecipePartialState } from './recipe.reducer';
 import { recipeQuery } from './recipe.selectors';
 import * as fromRecipeActions from './recipe.actions';
-import { Recipe } from '../../../../domain/src';
-import { GetRecipeRequestPayload } from '../resources/request-payloads/get-recipe.request-payload';
-import { GetRecipeCollectionRequestPayload } from '../resources/request-payloads/get-recipe-collection.request-payload';
-import { CreateRecipeRequestPayload } from '../resources/request-payloads/create-recipe.request-payload';
-import { UpdateRecipeRequestPayload } from '../resources/request-payloads/update-recipe.request-payload';
-import { RemoveRecipeRequestPayload } from '../resources/request-payloads/remove-recipe.request-payload';
+import {
+  CreateRecipeRequestPayload,
+  GetRecipeCollectionRequestPayload,
+  GetRecipeRequestPayload,
+  RemoveRecipeRequestPayload,
+  UpdateRecipeRequestPayload
+} from '@recipes/domain';
 
 @Injectable()
 export class RecipeFacade {

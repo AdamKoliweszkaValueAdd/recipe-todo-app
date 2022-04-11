@@ -1,10 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
-import { GetRecipeRequestPayload } from '../resources/request-payloads/get-recipe.request-payload';
-import { GetRecipeCollectionRequestPayload } from '../resources/request-payloads/get-recipe-collection.request-payload';
-import { CreateRecipeRequestPayload } from '../resources/request-payloads/create-recipe.request-payload';
-import { UpdateRecipeRequestPayload } from '../resources/request-payloads/update-recipe.request-payload';
-import { RemoveRecipeRequestPayload } from '../resources/request-payloads/remove-recipe.request-payload';
+import {
+  CreateRecipeRequestPayload,
+  GetRecipeCollectionRequestPayload,
+  GetRecipeRequestPayload,
+  RemoveRecipeRequestPayload,
+  UpdateRecipeRequestPayload
+} from '@recipes/domain';
 import {Recipe} from "@recipes/domain";
 
 export enum Types {

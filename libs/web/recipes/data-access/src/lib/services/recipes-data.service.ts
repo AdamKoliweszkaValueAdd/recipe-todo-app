@@ -1,11 +1,13 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Recipe} from '@recipes/domain';
+import {
+  CreateRecipeRequestPayload,
+  GetRecipeRequestPayload,
+  Recipe,
+  RemoveRecipeRequestPayload,
+  UpdateRecipeRequestPayload
+} from '@recipes/domain';
 import {Observable, of} from 'rxjs';
-import {GetRecipeRequestPayload} from '../resources/request-payloads/get-recipe.request-payload';
-import {CreateRecipeRequestPayload} from '../resources/request-payloads/create-recipe.request-payload';
-import {UpdateRecipeRequestPayload} from '../resources/request-payloads/update-recipe.request-payload';
-import {RemoveRecipeRequestPayload} from '../resources/request-payloads/remove-recipe.request-payload';
 import {fakedRecipes} from "../resources/fake-recipes";
 import {MemoizeExpiring} from "typescript-memoize";
 import {map} from "rxjs/operators";
