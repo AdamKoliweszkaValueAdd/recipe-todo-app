@@ -11,25 +11,30 @@ export class FilteredRecipeListComponent implements OnInit {
 
   @Input() recipes: Recipe[] | undefined | null;
 
-  @Output()showDetail = new EventEmitter<Recipe>();
-  @Output()removeRecipe = new EventEmitter<Recipe>();
-  @Output()editRecipe = new EventEmitter<Recipe>();
+  @Output() showDetail = new EventEmitter<Recipe>();
+  @Output() removeRecipe = new EventEmitter<Recipe>();
+  @Output() editRecipe = new EventEmitter<Recipe>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  onRemoveRecipe(recipe: Recipe){
+  onRemoveRecipe(recipe: Recipe) {
     this.removeRecipe.emit(recipe);
   }
 
-  onShowDetailOfRecipe(recipe: Recipe){
+  onShowDetailOfRecipe(recipe: Recipe) {
     this.showDetail.emit(recipe);
   }
 
-  onEditRecipe(recipe: Recipe){
+  onEditRecipe(recipe: Recipe) {
     this.editRecipe.emit(recipe);
+  }
+
+  identify(index: number, item: Recipe) {
+    return item._id;
   }
 
 }
