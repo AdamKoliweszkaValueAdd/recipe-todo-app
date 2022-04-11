@@ -7,6 +7,7 @@
     "recipes-app": "apps/recipes-app",
     "recipes-app-e2e": "apps/recipes-app-e2e",
     "ui": "libs/web/recipes/ui",
-    "utils": "libs/web/recipes/utils"
+    "utils": "libs/web/recipes/utils",
+    "web-recipes-shell": "libs/web/recipes/shell"
   }
 }

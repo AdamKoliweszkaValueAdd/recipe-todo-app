@@ -19,7 +19,8 @@
       "@recipes/domain": ["libs/web/recipes/domain/src/index.ts"],
       "@recipes/feature": ["libs/web/recipes/feature/src/index.ts"],
       "@recipes/ui": ["libs/web/recipes/ui/src/index.ts"],
-      "@recipes/utils": ["libs/web/recipes/utils/src/index.ts"]
+      "@recipes/utils": ["libs/web/recipes/utils/src/index.ts"],
+      "@recipes/web/recipes/shell": ["libs/web/recipes/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
