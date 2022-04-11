@@ -5,6 +5,7 @@ import {Recipe} from "@recipes/domain";
 import {ConfirmationDialogComponent} from "@recipes/ui";
 import {MatDialog} from "@angular/material/dialog";
 import {filter, pluck} from "rxjs";
+import {ConfirmationDialogServiceService} from "@recipes/utils";
 
 @Component({
   selector: 'recipes-recipe-details',
@@ -15,8 +16,11 @@ import {filter, pluck} from "rxjs";
 export class RecipeDetailsComponent implements OnInit {
   recipeId: string | undefined;
 
-  constructor(private recipeFacade: RecipeFacade, private route: ActivatedRoute,
-              private router: Router, public dialog: MatDialog,) {
+  constructor(private recipeFacade: RecipeFacade,
+              private route: ActivatedRoute,
+              private router: Router,
+              public dialog: MatDialog,
+              private confirmationDialogServiceService: ConfirmationDialogServiceService) {
   }
 
   ngOnInit(): void {
@@ -36,15 +40,8 @@ export class RecipeDetailsComponent implements OnInit {
 
   onRemoveRecipe(recipe: Recipe) {
     const message = 'Czy napewno chcesz usunąć przepis ' + recipe.name + '?';
-
-    const dialogData = {title: "Potwierdzenie usunięcia przepisu", message: message};
-
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      maxWidth: "400px",
-      data: dialogData
-    });
-
-    dialogRef.afterClosed().subscribe(dialogResult => {
+    const title = "Potwierdzenie usunięcia przepisu";
+    this.confirmationDialogServiceService.confirm(message, title, this.dialog).subscribe(dialogResult => {
       if (dialogResult && recipe._id) this.recipeFacade.removeRecipe({id: recipe._id});
     });
   }
