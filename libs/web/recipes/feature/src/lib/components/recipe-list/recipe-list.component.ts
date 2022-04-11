@@ -43,11 +43,17 @@ export class RecipeListComponent implements OnInit {
   }
 
   onEditRecipe(recipe: Recipe){
-    this.router.navigateByUrl('edit?recipeid=' + recipe._id)
+    this.router.navigate(
+      ['/edit'],
+      { queryParams: { recipeid: recipe._id } }
+    );
   }
 
   onViewDetailsOfRecipe(recipe: Recipe){
-    this.router.navigateByUrl('detail?recipeid=' + recipe._id)
+    this.router.navigate(
+      ['/detail'],
+      { queryParams: { recipeid: recipe._id } }
+    );
   }
 
 }
