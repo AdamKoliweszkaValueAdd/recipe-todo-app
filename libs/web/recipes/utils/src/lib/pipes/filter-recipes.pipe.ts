@@ -21,10 +21,8 @@ export class FilterRecipesPipe implements PipeTransform {
   }
 
   private checkIfRecipeIngradientsIsGood(ingradients: Ingradient[], searchedValue: string): boolean {
-    let isGood = false;
-    ingradients.forEach(ingradient => {
-      isGood = isGood || (ingradient.name.toLowerCase().indexOf(searchedValue.toLowerCase()) >= 0);
+    return ingradients.some(ingradient => {
+      return ingradient.name.toLowerCase().indexOf(searchedValue.toLowerCase()) >= 0;
     })
-    return isGood;
   }
 }
