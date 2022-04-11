@@ -18,9 +18,13 @@ export class RecipeFormContentComponent implements OnInit {
     this.recipeId = recipeToEdit?._id;
     if (recipeToEdit) {
       this.initFormByRecipeData(recipeToEdit);
-      this.uniqueRecipeNameValidatorsService.recipeId = recipeToEdit._id;
+      this.nameControl?.clearAsyncValidators();
+      this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.createUniqueNameValidator(recipeToEdit._id)]);
+      this.nameControl?.updateValueAndValidity();
     } else {
-      this.uniqueRecipeNameValidatorsService.recipeId = undefined;
+      this.nameControl?.clearAsyncValidators();
+      this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.createUniqueNameValidator(null)]);
+      this.nameControl?.updateValueAndValidity();
     }
   }
 
@@ -51,7 +55,7 @@ export class RecipeFormContentComponent implements OnInit {
 
   constructor(private uniqueRecipeNameValidatorsService: UniqueRecipeNameValidatorsService,
               private identyficationNumberGeneratorService: IdentyficationNumberGeneratorService) {
-    this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.validate.bind(this.uniqueRecipeNameValidatorsService)]);
+    this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.createUniqueNameValidator(null)]);
   }
 
   ngOnInit(): void {
