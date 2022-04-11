@@ -2,6 +2,9 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output}
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Ingradient, Recipe} from "@recipes/domain";
 import {UniqueRecipeNameValidatorsService} from "@recipes/utils";
+import {
+  IdentyficationNumberGeneratorService
+} from "../../../../../utils/src/lib/services/identyfication-number-generator.service";
 
 @Component({
   selector: 'recipes-recipe-form-content',
@@ -46,7 +49,8 @@ export class RecipeFormContentComponent implements OnInit {
     return this.recipeForm.get('description');
   }
 
-  constructor(private uniqueRecipeNameValidatorsService: UniqueRecipeNameValidatorsService) {
+  constructor(private uniqueRecipeNameValidatorsService: UniqueRecipeNameValidatorsService,
+              private identyficationNumberGeneratorService: IdentyficationNumberGeneratorService) {
     this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.validate.bind(this.uniqueRecipeNameValidatorsService)]);
   }
 
@@ -62,7 +66,7 @@ export class RecipeFormContentComponent implements OnInit {
   }
 
   onAddIngradient() {
-    const ingradientId = this.makeId();
+    const ingradientId = this.identyficationNumberGeneratorService.generateId();
     this.ingradientIds.push(ingradientId);
     this.recipeForm.setControl(this.getIngradientNameFormControlName(ingradientId), new FormControl('', [Validators.required]));
     this.recipeForm.setControl(this.getIngradientQuantityFormControlName(ingradientId), new FormControl('', [Validators.required]));
@@ -79,16 +83,6 @@ export class RecipeFormContentComponent implements OnInit {
     this.cancelForm.emit();
   }
 
-  private makeId() {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < 16; i++) {
-      result += characters.charAt(Math.floor(Math.random() *
-        charactersLength));
-    }
-    return result;
-  }
 
   private getIngradientNameFormControlName(ingradientId: string) {
     return 'ingradient_' + ingradientId + '_name';
