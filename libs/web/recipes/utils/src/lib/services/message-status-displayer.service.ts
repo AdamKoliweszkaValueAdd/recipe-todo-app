@@ -16,7 +16,6 @@ export class MessageStatusDisplayerService implements OnDestroy {
 
   subscribeToMessageStatus() {
     this.subscription = this.recipeFacade.currentMessageOfStatus$.subscribe(message => {
-      console.log(message);
       if (message) this._snackBar.open(message, 'Zamknij');
     })
   }
