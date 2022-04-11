@@ -8,9 +8,6 @@ import {UiModule} from "@recipes/ui";
 import {ReactiveFormsModule} from "@angular/forms";
 import {UtilsModule} from "@recipes/utils";
 import {RouterModule} from "@angular/router";
-import {
-  StatusOfActionsMessageComponent
-} from './components/status-of-actions-message/status-of-actions-message.component';
 
 @NgModule({
   imports: [CommonModule,
@@ -21,11 +18,8 @@ import {
     UiModule,
     ReactiveFormsModule,
     UtilsModule, RouterModule],
-  declarations: [
-    StatusOfActionsMessageComponent
-  ],
-  exports: [
-    StatusOfActionsMessageComponent]
+  declarations: [],
+  exports: []
 })
 export class FeatureModule {
 }

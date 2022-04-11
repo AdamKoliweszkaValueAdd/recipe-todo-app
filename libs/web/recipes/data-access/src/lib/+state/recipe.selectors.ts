@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RECIPE_FEATURE_KEY, RecipeState } from './recipe.reducer';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {RECIPE_FEATURE_KEY, RecipeState} from './recipe.reducer';
 
 // Lookup the 'Recipe' feature state managed by NgRx
 const getRecipeState = createFeatureSelector<RecipeState>(RECIPE_FEATURE_KEY);
@@ -34,6 +34,8 @@ const getRecipeRemoving = createSelector(getRecipeState, state => state.recipeRe
 
 const getRecipeRemoveError = createSelector(getRecipeState, state => state.recipeRemoveError);
 
+const getCurrentMessageOfStatus = createSelector(getRecipeState, state => state.currentMessageOfStatus);
+
 export const recipeQuery = {
   getRecipe,
   getRecipeLoading,
@@ -46,5 +48,6 @@ export const recipeQuery = {
   getRecipeUpdating,
   getRecipeUpdateError,
   getRecipeRemoving,
-  getRecipeRemoveError
+  getRecipeRemoveError,
+  getCurrentMessageOfStatus
 };

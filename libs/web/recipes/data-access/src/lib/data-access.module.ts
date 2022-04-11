@@ -10,6 +10,7 @@ import {
 import {RecipeEffects} from './+state/recipe.effects';
 import {RecipeFacade} from './+state/recipe.facade';
 import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   imports: [
@@ -18,11 +19,11 @@ import {HttpClientModule} from "@angular/common/http";
       initialState: recipeInitialState,
     }),
     EffectsModule.forFeature([RecipeEffects]),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [RecipeFacade, {
     provide: "BASE_API_URL",
-    useValue: "https://crudcrud.com/api/cfc70d6afbac429b981c4ed0134dfa67/recipes"
+    useValue: "https://crudcrud.com/api/c8b5e13ee4cb47b1893aa46bbba0f8b5/recipes"
   }],
 })
 export class DataAccessModule {

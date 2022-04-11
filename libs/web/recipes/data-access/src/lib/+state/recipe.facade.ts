@@ -3,13 +3,12 @@ import { select, Store } from '@ngrx/store';
 import { RecipePartialState } from './recipe.reducer';
 import { recipeQuery } from './recipe.selectors';
 import * as fromRecipeActions from './recipe.actions';
-import {
-  CreateRecipeRequestPayload,
-  GetRecipeCollectionRequestPayload,
-  GetRecipeRequestPayload,
-  RemoveRecipeRequestPayload,
-  UpdateRecipeRequestPayload
-} from '@recipes/domain';
+import { Recipe } from '../../../../domain/src';
+import { GetRecipeRequestPayload } from '../../../../domain/src/lib/payloads/get-recipe.request-payload';
+import { GetRecipeCollectionRequestPayload } from '../../../../domain/src/lib/payloads/get-recipe-collection.request-payload';
+import { CreateRecipeRequestPayload } from '../../../../domain/src/lib/payloads/create-recipe.request-payload';
+import { UpdateRecipeRequestPayload } from '../../../../domain/src/lib/payloads/update-recipe.request-payload';
+import { RemoveRecipeRequestPayload } from '../../../../domain/src/lib/payloads/remove-recipe.request-payload';
 
 @Injectable()
 export class RecipeFacade {
@@ -25,6 +24,7 @@ export class RecipeFacade {
   recipeUpdateError$ = this.store.pipe(select(recipeQuery.getRecipeUpdateError));
   recipeRemoving$ = this.store.pipe(select(recipeQuery.getRecipeRemoving));
   recipeRemoveError$ = this.store.pipe(select(recipeQuery.getRecipeRemoveError));
+  currentMessageOfStatus$ = this.store.pipe(select(recipeQuery.getCurrentMessageOfStatus));
   constructor(private store: Store<RecipePartialState>) {}
 
   getRecipe(data: GetRecipeRequestPayload): void {

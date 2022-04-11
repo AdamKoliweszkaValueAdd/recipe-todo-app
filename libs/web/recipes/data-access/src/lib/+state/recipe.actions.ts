@@ -24,7 +24,8 @@ export enum Types {
   UpdateRecipeSuccess = '[RECIPE] Update Recipe Success',
   RemoveRecipe = '[RECIPE] Remove Recipe',
   RemoveRecipeFail = '[RECIPE] Remove Recipe Fail',
-  RemoveRecipeSuccess = '[RECIPE] Remove Recipe Success'
+  RemoveRecipeSuccess = '[RECIPE] Remove Recipe Success',
+  SetStatusMessage = '[RECIPE] Set status message'
 }
 
 export const getRecipe = createAction(
@@ -97,4 +98,9 @@ export const removeRecipeFail = createAction(
 export const removeRecipeSuccess = createAction(
   Types.RemoveRecipeSuccess,
   props<{ payload: RemoveRecipeRequestPayload }>()
+);
+
+export const setStatusMessage = createAction(
+  Types.SetStatusMessage,
+  props<{ payload: string }>()
 );

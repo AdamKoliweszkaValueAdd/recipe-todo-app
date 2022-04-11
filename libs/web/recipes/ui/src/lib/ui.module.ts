@@ -19,9 +19,6 @@ import {MessageDialogComponent} from './components/message-dialog/message-dialog
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
 import {UnsavedRecipeFormGuard, UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
-import {
-  StatusOfMessageContentComponent
-} from './components/status-of-message-content/status-of-message-content.component';
 import {LoadingMessageComponent} from './components/loading-message/loading-message.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
@@ -37,7 +34,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     NoRecipeChoosenComponent,
     MessageDialogComponent,
     RecipeDetailsViewComponent,
-    StatusOfMessageContentComponent,
     LoadingMessageComponent,
   ],
   exports: [TopBarComponent,
@@ -47,7 +43,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     NoRecipeChoosenComponent,
     MessageDialogComponent,
     RecipeDetailsViewComponent,
-    StatusOfMessageContentComponent,
     LoadingMessageComponent,
   ],
   providers: [UnsavedRecipeFormGuard]

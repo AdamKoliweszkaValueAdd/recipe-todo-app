@@ -1,6 +1,6 @@
 import * as fromRecipeActions from './recipe.actions';
-import { on, createReducer, ActionReducer } from '@ngrx/store';
-import { HttpErrorResponse } from '@angular/common/http';
+import {on, createReducer, ActionReducer} from '@ngrx/store';
+import {HttpErrorResponse} from '@angular/common/http';
 import {Recipe} from "@recipes/domain";
 
 
@@ -19,6 +19,7 @@ export interface RecipeState {
   recipeUpdateError: HttpErrorResponse | null;
   recipeRemoving: boolean;
   recipeRemoveError: HttpErrorResponse | null;
+  currentMessageOfStatus: string | null;
 }
 
 export interface RecipePartialState {
@@ -37,7 +38,8 @@ export const initialState: RecipeState = {
   recipeUpdating: false,
   recipeUpdateError: null,
   recipeRemoving: false,
-  recipeRemoveError: null
+  recipeRemoveError: null,
+  currentMessageOfStatus: null
 };
 
 export const recipeReducer = createReducer(
@@ -171,6 +173,13 @@ export const recipeReducer = createReducer(
       recipeCollection: state.recipeCollection.filter(e => e._id !== action.payload.id),
       recipeRemoving: false,
       recipeRemoveError: null
+    })
+  ),
+  on(
+    fromRecipeActions.setStatusMessage,
+    (state, action): RecipeState => ({
+      ...state,
+      currentMessageOfStatus: action.payload,
     })
   )
 );

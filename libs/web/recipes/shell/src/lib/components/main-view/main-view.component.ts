@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MessageStatusDisplayerService} from "@recipes/utils";
 
 @Component({
   selector: 'recipes-main-view',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private messageStatusDisplayerService: MessageStatusDisplayerService) {
+  }
 
   ngOnInit(): void {
   }
