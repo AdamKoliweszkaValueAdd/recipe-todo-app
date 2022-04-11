@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
 import {ConfirmationDialogComponent} from "@recipes/ui";
 import {MatDialog} from "@angular/material/dialog";
+import {filter, pluck} from "rxjs";
 
 @Component({
   selector: 'recipes-recipe-details',
@@ -19,13 +20,10 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(params => {
-          this.recipeId = params ? params["recipeid"] : null;
-          console.log(this.recipeId); // price
-          if (this.recipeId) this.recipeFacade.getRecipe({id: this.recipeId})
-        }
-      );
+    this.route.queryParams.pipe(pluck('recipeid'), filter(value => !!value)).subscribe(recipeId => {
+      this.recipeId = recipeId;
+      this.recipeFacade.getRecipe({id: recipeId});
+    });
   }
 
   get recipe$() {

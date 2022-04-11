@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeFacade} from "@recipes/data-access";
 import {Recipe} from "@recipes/domain";
 import {RecipeFormContentComponent} from "@recipes/ui";
+import {filter, pluck} from "rxjs";
 
 @Component({
   selector: 'recipes-recipe-edit-form',
@@ -23,16 +24,14 @@ export class RecipeEditFormComponent implements OnInit {
 
   constructor(private recipeFacade: RecipeFacade, private route: ActivatedRoute,
               private router: Router) {
+
   }
 
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(params => {
-          this.recipeId = params ? params["recipeid"] : null;
-          console.log(this.recipeId); // price
-          if (this.recipeId) this.recipeFacade.getRecipe({id: this.recipeId})
-        }
-      );
+    this.route.queryParams.pipe(pluck('recipeid'), filter(value => !!value)).subscribe(recipeId => {
+      this.recipeId = recipeId;
+      this.recipeFacade.getRecipe({id: recipeId});
+    });
   }
 
   onCancelForm() {
