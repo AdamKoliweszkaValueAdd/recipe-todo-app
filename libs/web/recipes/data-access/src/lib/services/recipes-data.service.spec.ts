@@ -1,7 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { RecipesDataService } from './recipes-data.service';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import {RecipesDataService} from './recipes-data.service';
+import {HttpTestingController, HttpClientTestingModule} from '@angular/common/http/testing';
+import {RecipeFacade} from "@recipes/data-access";
 
 describe('RecipesDataService', () => {
   let httpMock: HttpTestingController;
@@ -9,9 +10,15 @@ describe('RecipesDataService', () => {
   let service: RecipesDataService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] });
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule], providers: [RecipeFacade, {
+        provide: "BASE_API_URL",
+        useValue: "https://crudcrud.com/api/11c2b27fbb834fcba06a9f5b691eab58/recipes"
+      }]
+    });
     httpMock = TestBed.inject(HttpTestingController);
     service = TestBed.inject(RecipesDataService);
+    service.baseUrl = '';
   });
   afterEach(() => {
     httpMock.verify();
@@ -30,7 +37,7 @@ describe('RecipesDataService', () => {
         expect(res).toBe(response);
       });
 
-      const req = httpMock.expectOne(service.endpoints.getRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('GET');
       req.flush(response);
     });
@@ -47,7 +54,7 @@ describe('RecipesDataService', () => {
         }
       );
 
-      const req = httpMock.expectOne(service.endpoints.getRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('GET');
       req.flush(response, {
         status: 400,
@@ -60,11 +67,11 @@ describe('RecipesDataService', () => {
     test('returns an observable of response data on success', () => {
       const response = {} as any;
 
-      service.getRecipeCollection({} as any).subscribe(res => {
+      service.getRecipeCollection().subscribe(res => {
         expect(res).toBe(response);
       });
 
-      const req = httpMock.expectOne(service.endpoints.getRecipeCollection);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('GET');
       req.flush(response);
     });
@@ -72,7 +79,7 @@ describe('RecipesDataService', () => {
     test('throws an error including response data on fail', () => {
       const response = {};
 
-      service.getRecipeCollection({} as any).subscribe(
+      service.getRecipeCollection().subscribe(
         () => {
           fail('expecting error');
         },
@@ -81,7 +88,7 @@ describe('RecipesDataService', () => {
         }
       );
 
-      const req = httpMock.expectOne(service.endpoints.getRecipeCollection);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('GET');
       req.flush(response, {
         status: 400,
@@ -98,7 +105,7 @@ describe('RecipesDataService', () => {
         expect(res).toBe(response);
       });
 
-      const req = httpMock.expectOne(service.endpoints.createRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('POST');
       req.flush(response);
     });
@@ -115,7 +122,7 @@ describe('RecipesDataService', () => {
         }
       );
 
-      const req = httpMock.expectOne(service.endpoints.createRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('POST');
       req.flush(response, {
         status: 400,
@@ -132,7 +139,7 @@ describe('RecipesDataService', () => {
         expect(res).toBe(response);
       });
 
-      const req = httpMock.expectOne(service.endpoints.updateRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('PUT');
       req.flush(response);
     });
@@ -149,7 +156,7 @@ describe('RecipesDataService', () => {
         }
       );
 
-      const req = httpMock.expectOne(service.endpoints.updateRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('PUT');
       req.flush(response, {
         status: 400,
@@ -166,7 +173,7 @@ describe('RecipesDataService', () => {
         expect(res).toBe(response);
       });
 
-      const req = httpMock.expectOne(service.endpoints.removeRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('DELETE');
       req.flush(response);
     });
@@ -183,7 +190,7 @@ describe('RecipesDataService', () => {
         }
       );
 
-      const req = httpMock.expectOne(service.endpoints.removeRecipe);
+      const req = httpMock.expectOne(service.baseUrl);
       expect(req.request.method).toBe('DELETE');
       req.flush(response, {
         status: 400,
