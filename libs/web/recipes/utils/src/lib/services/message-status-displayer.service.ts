@@ -1,7 +1,7 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {RecipeFacade} from "@recipes/data-access";
-import {filter, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
