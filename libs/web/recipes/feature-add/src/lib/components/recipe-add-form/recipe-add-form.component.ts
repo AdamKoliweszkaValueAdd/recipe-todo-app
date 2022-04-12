@@ -14,7 +14,7 @@ export class RecipeAddFormComponent {
   @ViewChild("recipeFormContentComponent")
   recipeFormContentComponent: RecipeFormContentComponent | undefined;
 
-  constructor(private router: Router, private recipeFacade: RecipeFacade) {
+  constructor(private router: Router, public recipeFacade: RecipeFacade) {
   }
 
   onCancelForm() {
