@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {MessageDialogComponent} from "../message-dialog/message-dialog.component";
+import {MessageDialogComponent} from "../../../../../dialogs-ui/src/lib/components/message-dialog/message-dialog.component";
 
 @Component({
   selector: 'recipes-top-bar',

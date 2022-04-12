@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {ConfirmationDialogComponent} from "@recipes/ui";
 import {MatDialog} from "@angular/material/dialog";
 import {Observable} from "rxjs";
+import {ConfirmationDialogComponent} from "@recipes/web/recipes/dialogs-ui";
 
 @Injectable({
   providedIn: 'root'

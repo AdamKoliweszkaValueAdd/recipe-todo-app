@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/recipes/dialogs-ui",
+  "sourceRoot": "libs/web/recipes/dialogs-ui/src",
+  "prefix": "recipes",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/recipes/dialogs-ui"],
+      "options": {
+        "jestConfig": "libs/web/recipes/dialogs-ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/recipes/dialogs-ui/src/**/*.ts",
+          "libs/web/recipes/dialogs-ui/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

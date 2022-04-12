@@ -23,7 +23,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
   ],
   providers: [RecipeFacade, {
     provide: "BASE_API_URL",
-    useValue: "https://crudcrud.com/api/c8b5e13ee4cb47b1893aa46bbba0f8b5/recipes"
+    useValue: "https://crudcrud.com/api/11c2b27fbb834fcba06a9f5b691eab58/recipes"
   }],
 })
 export class DataAccessModule {

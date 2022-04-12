@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {RecipeFacade} from "@recipes/data-access";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
-import {ConfirmationDialogComponent} from "@recipes/ui";
 import {MatDialog} from "@angular/material/dialog";
 import {filter, pluck} from "rxjs";
 import {ConfirmationDialogServiceService} from "@recipes/utils";

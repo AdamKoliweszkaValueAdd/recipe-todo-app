@@ -8,12 +8,10 @@ import {MatListModule} from "@angular/material/list";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
-import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {RecipeFormContentComponent} from './components/recipe-form-content/recipe-form-content.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
-import {MessageDialogComponent} from './components/message-dialog/message-dialog.component';
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
 import {UnsavedRecipeFormGuard, UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
@@ -25,18 +23,14 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule, MatProgressSpinnerModule],
   declarations: [
     TopBarComponent,
-    ConfirmationDialogComponent,
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
-    MessageDialogComponent,
     RecipeDetailsViewComponent,
     LoadingMessageComponent,
   ],
   exports: [TopBarComponent,
-    ConfirmationDialogComponent,
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
-    MessageDialogComponent,
     RecipeDetailsViewComponent,
     LoadingMessageComponent,
   ],
