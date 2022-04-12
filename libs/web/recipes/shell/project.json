@@ -22,5 +22,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "platform:web",
+    "type:shell",
+    "scope:recipes"
+  ]
 }
