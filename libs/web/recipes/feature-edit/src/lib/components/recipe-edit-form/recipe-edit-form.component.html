@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-title>Edytowanie przepisu</mat-card-title>
+  <recipes-loading-message *ngIf="(recipeLoading$ | async); else recipeEditContent"></recipes-loading-message>
+  <ng-template #recipeEditContent>
+    <recipes-recipe-form-content #recipeFormContentComponent [recipeToEdit]="recipe$ | async"
+                                 (saveRecipe)="onEditRecipe($event)"
+                                 (cancelForm)="onCancelForm()"></recipes-recipe-form-content>
+  </ng-template>
+</mat-card>

@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/web/recipes/feature-edit",
+  "sourceRoot": "libs/web/recipes/feature-edit/src",
+  "prefix": "recipes",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web/recipes/feature-edit"],
+      "options": {
+        "jestConfig": "libs/web/recipes/feature-edit/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/web/recipes/feature-edit/src/**/*.ts",
+          "libs/web/recipes/feature-edit/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

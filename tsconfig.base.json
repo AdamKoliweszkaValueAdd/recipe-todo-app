@@ -15,11 +15,27 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@recipes/data-access": ["libs/data-access/src/index.ts"],
-      "@recipes/domain": ["libs/domain/src/index.ts"],
-      "@recipes/feature": ["libs/feature/src/index.ts"],
-      "@recipes/ui": ["libs/ui/src/index.ts"],
-      "@recipes/utils": ["libs/utils/src/index.ts"]
+      "@recipes/data-access": ["libs/web/recipes/data-access/src/index.ts"],
+      "@recipes/domain": ["libs/web/recipes/domain/src/index.ts"],
+      "@recipes/feature": ["libs/web/recipes/feature/src/index.ts"],
+      "@recipes/ui": ["libs/web/recipes/ui/src/index.ts"],
+      "@recipes/utils": ["libs/web/recipes/utils/src/index.ts"],
+      "@recipes/web/recipes/dialogs-ui": [
+        "libs/web/recipes/dialogs-ui/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-add": [
+        "libs/web/recipes/feature-add/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-details": [
+        "libs/web/recipes/feature-details/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-edit": [
+        "libs/web/recipes/feature-edit/src/index.ts"
+      ],
+      "@recipes/web/recipes/feature-list": [
+        "libs/web/recipes/feature-list/src/index.ts"
+      ],
+      "@recipes/web/recipes/shell": ["libs/web/recipes/shell/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
