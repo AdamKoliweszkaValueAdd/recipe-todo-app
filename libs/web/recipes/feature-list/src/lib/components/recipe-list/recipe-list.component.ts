@@ -19,7 +19,7 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipeFacade: RecipeFacade, public dialog: MatDialog,
               private router: Router,
               private confirmationDialogServiceService: ConfirmationDialogServiceService) {
-    this.recipeFacade.getRecipeCollection({});
+    this.recipeFacade.getRecipeCollection();
   }
 
   get recipeCollection$() {

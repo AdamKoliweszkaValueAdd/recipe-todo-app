@@ -5,7 +5,6 @@ import {recipeQuery} from './recipe.selectors';
 import * as fromRecipeActions from './recipe.actions';
 import {
   CreateRecipeRequestPayload,
-  GetRecipeCollectionRequestPayload,
   GetRecipeRequestPayload,
   RemoveRecipeRequestPayload,
   UpdateRecipeRequestPayload
@@ -34,8 +33,8 @@ export class RecipeFacade {
     this.store.dispatch(fromRecipeActions.getRecipe({payload: data}));
   }
 
-  getRecipeCollection(data: GetRecipeCollectionRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.getRecipeCollection({payload: data}));
+  getRecipeCollection(): void {
+    this.store.dispatch(fromRecipeActions.getRecipeCollection());
   }
 
   createRecipe(data: CreateRecipeRequestPayload): void {
