@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./message-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessageDialogComponent implements OnInit {
+export class MessageDialogComponent {
 
   title: string | undefined;
   message: string | undefined;
@@ -19,6 +19,4 @@ export class MessageDialogComponent implements OnInit {
     this.message = data.message;
   }
 
-  ngOnInit(): void {
-  }
 }

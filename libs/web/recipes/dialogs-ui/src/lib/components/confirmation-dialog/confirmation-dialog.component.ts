@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./confirmation-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConfirmationDialogComponent implements OnInit {
+export class ConfirmationDialogComponent {
 
   title: string | undefined;
   message: string | undefined;
@@ -17,9 +17,6 @@ export class ConfirmationDialogComponent implements OnInit {
     // Update view with given values
     this.title = data.title;
     this.message = data.message;
-  }
-
-  ngOnInit(): void {
   }
 
   onConfirm(): void {
