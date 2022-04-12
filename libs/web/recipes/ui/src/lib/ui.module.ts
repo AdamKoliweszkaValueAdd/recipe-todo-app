@@ -4,12 +4,10 @@ import {TopBarComponent} from './components/top-bar/top-bar.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
-import {RecipesListItemComponent} from './components/recipes-list-item/recipes-list-item.component';
 import {MatListModule} from "@angular/material/list";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
-import {FilteredRecipeListComponent} from './components/filtered-recipe-list/filtered-recipe-list.component';
 import {ConfirmationDialogComponent} from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {RecipeFormContentComponent} from './components/recipe-form-content/recipe-form-content.component';
@@ -27,8 +25,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule, MatProgressSpinnerModule],
   declarations: [
     TopBarComponent,
-    RecipesListItemComponent,
-    FilteredRecipeListComponent,
     ConfirmationDialogComponent,
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
@@ -37,7 +33,6 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     LoadingMessageComponent,
   ],
   exports: [TopBarComponent,
-    FilteredRecipeListComponent,
     ConfirmationDialogComponent,
     RecipeFormContentComponent,
     NoRecipeChoosenComponent,
