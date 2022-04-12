@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { RecipePartialState } from './recipe.reducer';
-import { recipeQuery } from './recipe.selectors';
+import {Injectable} from '@angular/core';
+import {select, Store} from '@ngrx/store';
+import {RecipePartialState} from './recipe.reducer';
+import {recipeQuery} from './recipe.selectors';
 import * as fromRecipeActions from './recipe.actions';
-import { Recipe } from '../../../../domain/src';
-import { GetRecipeRequestPayload } from '../../../../domain/src/lib/payloads/get-recipe.request-payload';
-import { GetRecipeCollectionRequestPayload } from '../../../../domain/src/lib/payloads/get-recipe-collection.request-payload';
-import { CreateRecipeRequestPayload } from '../../../../domain/src/lib/payloads/create-recipe.request-payload';
-import { UpdateRecipeRequestPayload } from '../../../../domain/src/lib/payloads/update-recipe.request-payload';
-import { RemoveRecipeRequestPayload } from '../../../../domain/src/lib/payloads/remove-recipe.request-payload';
+import {
+  CreateRecipeRequestPayload,
+  GetRecipeCollectionRequestPayload,
+  GetRecipeRequestPayload,
+  RemoveRecipeRequestPayload,
+  UpdateRecipeRequestPayload
+} from "@recipes/domain";
 
 @Injectable()
 export class RecipeFacade {
@@ -25,25 +26,27 @@ export class RecipeFacade {
   recipeRemoving$ = this.store.pipe(select(recipeQuery.getRecipeRemoving));
   recipeRemoveError$ = this.store.pipe(select(recipeQuery.getRecipeRemoveError));
   currentMessageOfStatus$ = this.store.pipe(select(recipeQuery.getCurrentMessageOfStatus));
-  constructor(private store: Store<RecipePartialState>) {}
+
+  constructor(private store: Store<RecipePartialState>) {
+  }
 
   getRecipe(data: GetRecipeRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.getRecipe({ payload: data }));
+    this.store.dispatch(fromRecipeActions.getRecipe({payload: data}));
   }
 
   getRecipeCollection(data: GetRecipeCollectionRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.getRecipeCollection({ payload: data }));
+    this.store.dispatch(fromRecipeActions.getRecipeCollection({payload: data}));
   }
 
   createRecipe(data: CreateRecipeRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.createRecipe({ payload: data }));
+    this.store.dispatch(fromRecipeActions.createRecipe({payload: data}));
   }
 
   updateRecipe(data: UpdateRecipeRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.updateRecipe({ payload: data }));
+    this.store.dispatch(fromRecipeActions.updateRecipe({payload: data}));
   }
 
   removeRecipe(data: RemoveRecipeRequestPayload): void {
-    this.store.dispatch(fromRecipeActions.removeRecipe({ payload: data }));
+    this.store.dispatch(fromRecipeActions.removeRecipe({payload: data}));
   }
 }

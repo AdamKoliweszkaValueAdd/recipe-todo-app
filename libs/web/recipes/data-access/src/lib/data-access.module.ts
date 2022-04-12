@@ -10,7 +10,6 @@ import {
 import {RecipeEffects} from './+state/recipe.effects';
 import {RecipeFacade} from './+state/recipe.facade';
 import {HttpClientModule} from "@angular/common/http";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   imports: [

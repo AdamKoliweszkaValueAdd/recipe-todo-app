@@ -7,7 +7,7 @@ import {
   RemoveRecipeRequestPayload,
   UpdateRecipeRequestPayload
 } from '@recipes/domain';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {fakedRecipes} from "../resources/fake-recipes";
 import {MemoizeExpiring} from "typescript-memoize";
 import {map} from "rxjs/operators";
@@ -51,12 +51,12 @@ export class RecipesDataService {
 
   updateRecipe(payload: UpdateRecipeRequestPayload): Observable<Recipe> {
     const newDataOfRecipe = {...payload.data, _id: undefined};
-    return this.http.put<Recipe>(this.baseUrl + '/' + payload.data._id, newDataOfRecipe).pipe(map(r => {
+    return this.http.put<Recipe>(this.baseUrl + '/' + payload.data._id, newDataOfRecipe).pipe(map(() => {
       return payload.data;
     }));
   }
 
   removeRecipe(payload: RemoveRecipeRequestPayload): Observable<void> {
-    return this.http.delete<any>(this.baseUrl + '/' + payload.id);
+    return this.http.delete<void>(this.baseUrl + '/' + payload.id);
   }
 }
