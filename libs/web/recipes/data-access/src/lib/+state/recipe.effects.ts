@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import * as fromRecipeActions from './recipe.actions';
-import {Actions, createEffect, Effect, ofType} from '@ngrx/effects';
+import {Actions, createEffect,  ofType} from '@ngrx/effects';
 import {RecipesDataService} from '../services/recipes-data.service';
 import {fetch, pessimisticUpdate} from '@nrwl/angular';
 import {HttpErrorResponse} from '@angular/common/http';
-import {map, mergeMap, switchMap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class RecipeEffects {
@@ -13,8 +13,7 @@ export class RecipeEffects {
     this.actions$.pipe(
       ofType(fromRecipeActions.getRecipe),
       fetch({
-        id: () => {
-        },
+
         run: ({payload}) => {
           return this.recipesDataService
             .getRecipe(payload)
@@ -31,9 +30,7 @@ export class RecipeEffects {
     this.actions$.pipe(
       ofType(fromRecipeActions.getRecipeCollection),
       fetch({
-        id: () => {
-        },
-        run: ({payload}) => {
+        run: () => {
           return this.recipesDataService
             .getRecipeCollection()
             .pipe(map(data => fromRecipeActions.getRecipeCollectionSuccess({payload: data})));
@@ -84,7 +81,7 @@ export class RecipeEffects {
         run: ({payload}) => {
           return this.recipesDataService
             .removeRecipe(payload)
-            .pipe(map(data => fromRecipeActions.removeRecipeSuccess({payload})));
+            .pipe(map(() => fromRecipeActions.removeRecipeSuccess({payload})));
         },
         onError: (action, error: HttpErrorResponse) => {
           return fromRecipeActions.removeRecipeFail({payload: error});

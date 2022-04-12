@@ -1,5 +1,5 @@
 import * as fromRecipeActions from './recipe.actions';
-import {on, createReducer, ActionReducer} from '@ngrx/store';
+import {on, createReducer} from '@ngrx/store';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Recipe} from "@recipes/domain";
 
@@ -46,7 +46,7 @@ export const recipeReducer = createReducer(
   initialState,
   on(
     fromRecipeActions.getRecipe,
-    (state, action): RecipeState => ({
+    (state): RecipeState => ({
       ...state,
       recipe: null,
       recipeLoading: true,
@@ -73,7 +73,7 @@ export const recipeReducer = createReducer(
   ),
   on(
     fromRecipeActions.getRecipeCollection,
-    (state, action): RecipeState => ({
+    (state): RecipeState => ({
       ...state,
       recipeCollection: [],
       recipeCollectionLoading: true,
@@ -100,7 +100,7 @@ export const recipeReducer = createReducer(
   ),
   on(
     fromRecipeActions.createRecipe,
-    (state, action): RecipeState => ({
+    (state): RecipeState => ({
       ...state,
       recipeCreating: true,
       recipeCreateError: null
@@ -125,7 +125,7 @@ export const recipeReducer = createReducer(
   ),
   on(
     fromRecipeActions.updateRecipe,
-    (state, action): RecipeState => ({
+    (state): RecipeState => ({
       ...state,
       recipeUpdating: true,
       recipeUpdateError: null
@@ -152,7 +152,7 @@ export const recipeReducer = createReducer(
   ),
   on(
     fromRecipeActions.removeRecipe,
-    (state, action): RecipeState => ({
+    (state): RecipeState => ({
       ...state,
       recipeRemoving: true,
       recipeRemoveError: null
