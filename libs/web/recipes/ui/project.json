@@ -1,16 +1,16 @@
 {
   "projectType": "library",
-  "root": "libs/ui",
-  "sourceRoot": "libs/ui/src",
+  "root": "libs/web/recipes/ui",
+  "sourceRoot": "libs/web/recipes/ui/src",
   "prefix": "recipes",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/libs/ui"
+        "coverage/libs/web/recipes/ui"
       ],
       "options": {
-        "jestConfig": "libs/ui/jest.config.js",
+        "jestConfig": "libs/web/recipes/ui/jest.config.js",
         "passWithNoTests": true
       }
     },

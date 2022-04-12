@@ -13,11 +13,11 @@ describe('PreparationTimePipe', () => {
 
   it('transforms "50" to "50m"', () => {
     const pipe = new PreparationTimePipe();
-    expect(pipe.transform(50)).toBe('50m');
+    expect(pipe.transform(50)).toBe('0h 50m');
   });
 
   it('transforms "180" to "3h 0m"', () => {
     const pipe = new PreparationTimePipe();
-    expect(pipe.transform(50)).toBe('3h 0m');
+    expect(pipe.transform(180)).toBe('3h 0m');
   });
 });
