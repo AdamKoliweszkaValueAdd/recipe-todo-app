@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Szczegóły przepisu</mat-card-title>
   <recipes-loading-message *ngIf="recipeLoading$ | async"></recipes-loading-message>
-  <ng-container *ngIf="!(recipeLoading$ | async)">
+  <ng-container *ngIf="(recipeLoading$ | async) === false">
     <ng-container *ngIf="recipe$ | async as recipe">
       <recipes-recipe-details-view [recipe]="recipe"></recipes-recipe-details-view>
       <div class="option-buttons">
