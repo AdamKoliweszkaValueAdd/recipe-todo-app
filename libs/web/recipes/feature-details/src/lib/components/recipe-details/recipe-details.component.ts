@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
 import {MatDialog} from "@angular/material/dialog";
 import {filter, pluck} from "rxjs";
-import {ConfirmationDialogServiceService} from "@recipes/utils";
+import {ConfirmationDialogServiceService} from "@recipes/web/recipes/dialogs-ui";
 
 @Component({
   selector: 'recipes-recipe-details',

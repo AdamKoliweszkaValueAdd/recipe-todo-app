@@ -4,7 +4,7 @@ import {RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
-import {ConfirmationDialogServiceService} from "@recipes/utils";
+import {ConfirmationDialogServiceService} from "@recipes/web/recipes/dialogs-ui";
 
 @Component({
   selector: 'recipes-recipe-list',
