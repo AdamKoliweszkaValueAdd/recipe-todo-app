@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {MessageDialogComponent} from "../../../../../dialogs-ui/src/lib/components/message-dialog/message-dialog.component";
+import {MessageDialogComponent} from "@recipes/web/recipes/dialogs-ui";
 
 @Component({
   selector: 'recipes-top-bar',
@@ -8,14 +8,11 @@ import {MessageDialogComponent} from "../../../../../dialogs-ui/src/lib/componen
   styleUrls: ['./top-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TopBarComponent implements OnInit {
+export class TopBarComponent{
   @Input() appName = 'Recipe App';
   @Input() icon = 'home';
 
   constructor( public dialog: MatDialog) {
-  }
-
-  ngOnInit(): void {
   }
 
   onShowAuthor() {
@@ -23,7 +20,7 @@ export class TopBarComponent implements OnInit {
 
     const dialogData = {title: "Autor aplikacji", message: message};
 
-    const dialogRef = this.dialog.open(MessageDialogComponent, {
+    this.dialog.open(MessageDialogComponent, {
       maxWidth: "400px",
       data: dialogData
     });

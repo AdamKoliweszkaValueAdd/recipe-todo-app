@@ -8,9 +8,6 @@ import {ConfirmationDialogComponent} from "@recipes/web/recipes/dialogs-ui";
 })
 export class ConfirmationDialogServiceService {
 
-  constructor() {
-  }
-
   confirm(message: string, title: string, dialog: MatDialog): Observable<any> {
 
     const dialogData = {title: title, message: message};

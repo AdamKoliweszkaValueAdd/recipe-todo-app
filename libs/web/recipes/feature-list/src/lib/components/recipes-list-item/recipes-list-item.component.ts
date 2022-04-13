@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Recipe} from "@recipes/domain";
 
 @Component({
@@ -7,28 +7,24 @@ import {Recipe} from "@recipes/domain";
   styleUrls: ['./recipes-list-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipesListItemComponent implements OnInit {
+export class RecipesListItemComponent {
   @Input() recipe: Recipe | undefined;
 
-  @Output()showDetail = new EventEmitter<Recipe>();
-  @Output()removeRecipe = new EventEmitter<Recipe>();
-  @Output()editRecipe = new EventEmitter<Recipe>();
+  @Output() showDetail = new EventEmitter<Recipe>();
+  @Output() removeRecipe = new EventEmitter<Recipe>();
+  @Output() editRecipe = new EventEmitter<Recipe>();
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  onClickRecipe(){
+  onClickRecipe() {
     this.showDetail.emit(this.recipe);
   }
 
-  onClickRemove(evt: Event){
+  onClickRemove(evt: Event) {
     evt.stopPropagation();
     this.removeRecipe.emit(this.recipe);
   }
 
-  onClickEdit(evt: Event){
+  onClickEdit(evt: Event) {
     evt.stopPropagation();
     this.editRecipe.emit(this.recipe);
   }

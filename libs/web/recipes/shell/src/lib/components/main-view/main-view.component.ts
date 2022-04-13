@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {MessageStatusDisplayerService} from "@recipes/utils";
 
 @Component({
@@ -6,12 +6,9 @@ import {MessageStatusDisplayerService} from "@recipes/utils";
   templateUrl: './main-view.component.html',
   styleUrls: ['./main-view.component.scss']
 })
-export class MainViewComponent implements OnInit {
+export class MainViewComponent {
 
   constructor(private messageStatusDisplayerService: MessageStatusDisplayerService) {
-  }
-
-  ngOnInit(): void {
   }
 
 }

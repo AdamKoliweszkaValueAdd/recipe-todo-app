@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component } from '@angular/core';
 import {Recipe} from "@recipes/domain";
 import {RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
@@ -12,7 +12,7 @@ import {ConfirmationDialogServiceService} from "@recipes/utils";
   styleUrls: ['./recipe-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent {
 
   searchedRecipe = new FormControl('');
 
@@ -28,9 +28,6 @@ export class RecipeListComponent implements OnInit {
 
   get recipesCollectionLoading$() {
     return this.recipeFacade.recipeCollectionLoading$;
-  }
-
-  ngOnInit(): void {
   }
 
   onRemoveRecipe(recipe: Recipe) {

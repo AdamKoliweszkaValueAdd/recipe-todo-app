@@ -18,8 +18,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/ui/src/**/*.ts",
-          "libs/ui/src/**/*.html"
+          "libs/web/recipes/ui/src/**/*.ts",
+          "libs/web/recipes/ui/src/**/*.html"
         ]
       }
     }

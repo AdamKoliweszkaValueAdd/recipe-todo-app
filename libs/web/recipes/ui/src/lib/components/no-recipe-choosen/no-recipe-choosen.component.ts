@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'recipes-no-recipe-choosen',
@@ -6,11 +6,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   styleUrls: ['./no-recipe-choosen.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NoRecipeChoosenComponent implements OnInit {
+export class NoRecipeChoosenComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

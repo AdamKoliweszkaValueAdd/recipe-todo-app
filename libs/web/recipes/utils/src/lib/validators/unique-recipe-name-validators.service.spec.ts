@@ -1,12 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { UniqueRecipeNameValidatorsService } from './unique-recipe-name-validators.service';
+import {UniqueRecipeNameValidatorsService} from './unique-recipe-name-validators.service';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('UniqueRecipeNameValidatorsService', () => {
   let service: UniqueRecipeNameValidatorsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        {
+          provide: 'BASE_API_URL', useValue: ''
+        },
+      ]
+    });
     service = TestBed.inject(UniqueRecipeNameValidatorsService);
   });
 

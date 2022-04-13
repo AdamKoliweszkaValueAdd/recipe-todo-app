@@ -5,3 +5,4 @@ export * from './lib/+state/recipe.selectors';
 export * from './lib/+state/recipe.reducer';
 export * from './lib/+state/recipe.actions';
 export * from './lib/data-access.module';
+export * from './lib/services/recipes-data.service';
