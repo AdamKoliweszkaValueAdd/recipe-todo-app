@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MessageStatusDisplayerService} from "@recipes/utils";
+import {MessageStatusDisplayerService} from "@recipes/data-access";
 
 @Component({
   selector: 'recipes-main-view',
