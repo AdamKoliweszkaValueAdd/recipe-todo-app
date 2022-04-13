@@ -13,10 +13,11 @@ import {RecipeFormContentComponent} from './components/recipe-form-content/recip
 import {ReactiveFormsModule} from "@angular/forms";
 import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
-import {UnsavedRecipeFormGuard, UtilsModule} from "@recipes/utils";
+import { UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
 import {LoadingMessageComponent} from './components/loading-message/loading-message.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {UnsavedRecipeFormGuard} from "./guards/unsaved-recipe-form.guard";
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule,
