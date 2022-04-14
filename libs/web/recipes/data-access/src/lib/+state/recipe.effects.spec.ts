@@ -69,7 +69,7 @@ describe('RecipeEffects', () => {
   describe('getRecipeCollection$', () => {
     test('returns GetRecipeCollectionSuccess action on success', () => {
       const payload = {} as any;
-      const action = fromRecipeActions.getRecipeCollection({} as any);
+      const action = fromRecipeActions.getRecipeCollection();
       const completion = fromRecipeActions.getRecipeCollectionSuccess({payload});
 
       actions = hot('-a', {a: action});
@@ -85,7 +85,7 @@ describe('RecipeEffects', () => {
 
     test('returns GetRecipeCollectionFail action on fail', () => {
       const payload = {} as any;
-      const action = fromRecipeActions.getRecipeCollection({} as any);
+      const action = fromRecipeActions.getRecipeCollection();
       const completion = fromRecipeActions.getRecipeCollectionFail({payload});
 
       actions = hot('-a', {a: action});
