@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Recipe} from "@recipes/domain";
-import {RecipeFacade} from "@recipes/data-access";
+import {MessageStatusDisplayerService, RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
@@ -18,7 +18,8 @@ export class RecipeListComponent {
 
   constructor(private recipeFacade: RecipeFacade, public dialog: MatDialog,
               private router: Router,
-              private confirmationDialogServiceService: ConfirmationDialogServiceService) {
+              private confirmationDialogServiceService: ConfirmationDialogServiceService,
+              private messageStatusDisplayerService: MessageStatusDisplayerService) {
     this.recipeFacade.getRecipeCollection();
   }
 

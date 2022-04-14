@@ -1,7 +1,8 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Ingradient, Recipe} from "@recipes/domain";
-import {IdentyficationNumberGeneratorService, UniqueRecipeNameValidatorsService} from "@recipes/utils";
+import {IdentyficationNumberGeneratorService} from "@recipes/utils";
+import {UniqueRecipeNameValidatorsService} from "@recipes/data-access";
 
 
 @Component({

@@ -2,8 +2,9 @@ import {TestBed} from '@angular/core/testing';
 
 import {MessageStatusDisplayerService} from './message-status-displayer.service';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {RecipeFacade} from "@recipes/data-access";
+
 import {of} from "rxjs";
+import {RecipeFacade} from "../+state/recipe.facade";
 
 describe('MessageStatusDisplayerService', () => {
   let service: MessageStatusDisplayerService;

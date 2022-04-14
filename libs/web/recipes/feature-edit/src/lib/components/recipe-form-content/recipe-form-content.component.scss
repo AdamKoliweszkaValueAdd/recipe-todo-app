@@ -1,0 +1,30 @@
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.form-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+
+.input-full-width{
+  width: 100%;
+}
+
+.add-ingradient-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.ingradient-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

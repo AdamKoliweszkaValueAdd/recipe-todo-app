@@ -7,3 +7,4 @@ export * from './lib/+state/recipe.actions';
 export * from './lib/data-access.module';
 export * from './lib/services/recipes-data.service';
 export * from './lib/services/message-status-displayer.service';
+export * from './lib/validators/unique-recipe-name-validators.service';

@@ -99,5 +99,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "platform:web",
+    "type:app",
+    "scope:recipes"
+  ]
 }

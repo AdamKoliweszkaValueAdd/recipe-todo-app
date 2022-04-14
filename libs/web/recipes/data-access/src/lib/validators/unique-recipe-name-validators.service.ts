@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {AbstractControl, ValidationErrors} from "@angular/forms";
-import {RecipesDataService} from "@recipes/data-access";
+import {RecipesDataService} from "../services/recipes-data.service";
 
 @Injectable({
   providedIn: 'root'

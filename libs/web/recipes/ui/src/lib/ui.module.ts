@@ -9,7 +9,6 @@ import { MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatDialogModule} from "@angular/material/dialog";
-import {RecipeFormContentComponent} from './components/recipe-form-content/recipe-form-content.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NoRecipeChoosenComponent} from './components/no-recipe-choosen/no-recipe-choosen.component';
 import {RecipeDetailsViewComponent} from './components/recipe-details-view/recipe-details-view.component';
@@ -17,25 +16,21 @@ import { UtilsModule} from "@recipes/utils";
 import {MatDividerModule} from "@angular/material/divider";
 import {LoadingMessageComponent} from './components/loading-message/loading-message.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {UnsavedRecipeFormGuard} from "./guards/unsaved-recipe-form.guard";
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule,
     MatInputModule, MatCardModule, MatDialogModule, ReactiveFormsModule, UtilsModule, MatDividerModule, MatProgressSpinnerModule],
   declarations: [
     TopBarComponent,
-    RecipeFormContentComponent,
     NoRecipeChoosenComponent,
     RecipeDetailsViewComponent,
     LoadingMessageComponent,
   ],
   exports: [TopBarComponent,
-    RecipeFormContentComponent,
     NoRecipeChoosenComponent,
     RecipeDetailsViewComponent,
     LoadingMessageComponent,
   ],
-  providers: [UnsavedRecipeFormGuard]
 })
 export class UiModule {
 }

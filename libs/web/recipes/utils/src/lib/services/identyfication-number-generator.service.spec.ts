@@ -1,7 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
 import {IdentyficationNumberGeneratorService} from './identyfication-number-generator.service';
-import {FilterRecipesPipe} from "@recipes/utils";
 
 describe('IdentyficationNumberGeneratorService', () => {
   let service: IdentyficationNumberGeneratorService;

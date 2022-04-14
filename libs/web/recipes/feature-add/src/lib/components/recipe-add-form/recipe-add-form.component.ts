@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
 import {RecipeFacade} from "@recipes/data-access";
-import {RecipeFormContentComponent} from "@recipes/ui";
+import {RecipeFormContentComponent} from "../recipe-form-content/recipe-form-content.component";
 
 @Component({
   selector: 'recipes-recipe-add-form',

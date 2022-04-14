@@ -2,9 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {MainViewComponent} from './main-view.component';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {RecipeFacade} from "@recipes/data-access";
-import {Recipe} from "@recipes/domain";
-import {of} from "rxjs";
 
 describe('MainViewComponent', () => {
   let component: MainViewComponent;
@@ -14,16 +11,6 @@ describe('MainViewComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [MainViewComponent],
       imports: [MatSnackBarModule],
-      providers: [
-        {
-          provide: RecipeFacade, useValue: {
-            createRecipe: (recipe: Recipe) => {
-              console.log(recipe);
-            },
-            currentMessageOfStatus$: of(null),
-          }
-        },
-      ]
     })
       .compileComponents();
   });

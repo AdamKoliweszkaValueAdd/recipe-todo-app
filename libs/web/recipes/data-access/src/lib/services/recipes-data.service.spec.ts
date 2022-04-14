@@ -2,7 +2,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {RecipesDataService} from './recipes-data.service';
 import {HttpTestingController, HttpClientTestingModule} from '@angular/common/http/testing';
-import {RecipeFacade} from "@recipes/data-access";
+import {RecipeFacade} from "../+state/recipe.facade";
 
 describe('RecipesDataService', () => {
   let httpMock: HttpTestingController;

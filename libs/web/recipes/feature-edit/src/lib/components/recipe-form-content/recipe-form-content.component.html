@@ -1,0 +1,67 @@
+<form [formGroup]="recipeForm" class="form-content">
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Nazwa przepisu</mat-label>
+    <input matInput placeholder="Np. Pizza" formControlName="name">
+    <mat-error
+      *ngIf=" (nameControl?.hasError('minlength') || nameControl?.hasError('maxlength'))">
+      Nazwa powinna mieć długość <strong>od 3 do 80 znaków</strong>
+    </mat-error>
+    <mat-error *ngIf=" nameControl?.hasError('required')">
+      Nazwa jest <strong>wymagana</strong>
+    </mat-error>
+    <mat-error *ngIf=" nameControl?.hasError('unique')">
+      Nazwa nie jest <strong>unikalna</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Czas przygotowywania[min]</mat-label>
+    <input type="number" matInput placeholder="Np. 30m" formControlName="preparationTime">
+    <mat-error *ngIf=" preparationTimeControl?.hasError('min')">
+      Czas przygotowania musi być <strong>większy od 0</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Opis przepisu</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    <mat-error
+      *ngIf=" (descriptionControl?.hasError('minlength') || descriptionControl?.hasError('maxlength'))">
+      Opis powinnien mieć długość <strong>od 15 do 255 znaków</strong>
+    </mat-error>
+    <mat-error *ngIf=" descriptionControl?.hasError('required')">
+      Opis jest <strong>wymagany</strong>
+    </mat-error>
+  </mat-form-field>
+  <div class="add-ingradient-button">
+    <button (click)="onAddIngradient()" mat-raised-button color="primary">Dodaj składnik</button>
+  </div>
+  <mat-error *ngIf="ingradientIds.length < 2 && recipeForm?.touched">
+    Przepis wymaga co najmniej <strong>2 składników</strong>
+  </mat-error>
+  <div *ngFor="let ingradientId of ingradientIds" class="ingradient-row">
+    <mat-form-field class="input-full-width" appearance="fill">
+      <mat-label>Nazwa składniku</mat-label>
+      <input matInput placeholder="Np. Pieczarki" [formControlName]="'ingradient_' + ingradientId + '_name'">
+      <mat-error
+        *ngIf=" getIngradientNameControl(ingradientId)?.hasError('required')">
+        Nazwa składniku jest <strong>wymagana</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="input-full-width" appearance="fill">
+      <mat-label>Ilość</mat-label>
+      <input matInput placeholder="Np. 300g" [formControlName]="'ingradient_' + ingradientId + '_quantity'">
+      <mat-error
+        *ngIf=" getIngradientQuantityControl(ingradientId)?.hasError('required')">
+        Ilość składnika jest <strong>wymagana</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon"
+            (click)="onRemoveIngradient(ingradientId)">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="onCancelForm()">Anuluj</button>
+    <button mat-raised-button color="primary" (click)="submitForm()">Zapisz</button>
+  </div>
+</form>

@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MessageStatusDisplayerService} from "@recipes/data-access";
 
 @Component({
   selector: 'recipes-main-view',
@@ -7,8 +6,5 @@ import {MessageStatusDisplayerService} from "@recipes/data-access";
   styleUrls: ['./main-view.component.scss']
 })
 export class MainViewComponent {
-
-  constructor(private messageStatusDisplayerService: MessageStatusDisplayerService) {
-  }
 
 }

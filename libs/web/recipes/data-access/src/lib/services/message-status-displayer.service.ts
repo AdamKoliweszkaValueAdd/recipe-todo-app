@@ -1,10 +1,11 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {RecipeFacade} from "@recipes/data-access";
+import {DataAccessModule} from "../data-access.module";
+import {RecipeFacade} from "../+state/recipe.facade";
 import {Subscription} from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: DataAccessModule
 })
 export class MessageStatusDisplayerService implements OnDestroy {
 
