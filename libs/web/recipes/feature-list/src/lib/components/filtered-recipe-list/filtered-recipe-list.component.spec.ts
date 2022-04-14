@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FilteredRecipeListComponent } from './filtered-recipe-list.component';
+import {MatListModule} from "@angular/material/list";
+import {MatIconModule} from "@angular/material/icon";
 
 describe('FilteredRecipeListComponent', () => {
   let component: FilteredRecipeListComponent;
@@ -8,7 +10,8 @@ describe('FilteredRecipeListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilteredRecipeListComponent ]
+      declarations: [ FilteredRecipeListComponent ],
+      imports: [MatListModule,MatIconModule]
     })
     .compileComponents();
   });

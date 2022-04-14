@@ -2,10 +2,11 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {RecipeListComponent} from './recipe-list.component';
 import {RouterTestingModule} from "@angular/router/testing";
-import {RecipeFacade} from "@recipes/data-access";
+import { MessageStatusDisplayerService, RecipeFacade} from "@recipes/data-access";
 import {Recipe} from "@recipes/domain";
 import {MatDialogModule} from "@angular/material/dialog";
 import {UtilsModule} from "@recipes/utils";
+import {of} from "rxjs";
 
 describe('RecipeListComponent', () => {
   let component: RecipeListComponent;
@@ -23,9 +24,14 @@ describe('RecipeListComponent', () => {
             },
             getRecipeCollection: () => {
               console.log("get recipe");
-            }
+            },
+            recipeCollection$: of([]),
+            recipeCollectionLoading$: of(true)
           }
         },
+        {
+          provide: MessageStatusDisplayerService, useValue: {}
+        }
       ]
     })
       .compileComponents();
