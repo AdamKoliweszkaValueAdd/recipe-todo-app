@@ -19,7 +19,7 @@ export class RecipesDataService {
 
   fakedRecipes = fakedRecipes;
 
-  constructor(private http: HttpClient, @Inject('BASE_API_URL') private baseUrl: string) {
+  constructor(private http: HttpClient, @Inject('BASE_API_URL') public baseUrl: string) {
     console.log(this.baseUrl)
   }
 

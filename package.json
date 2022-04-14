@@ -29,6 +29,7 @@
     "@ngrx/store-devtools": "^13.1.0",
     "@nrwl/angular": "13.9.6",
     "@valueadd/schematics": "^3.1.1",
+    "@valueadd/testing": "^2.7.0",
     "jest-createspyobj": "^2.0.0",
     "jest-marbles": "^3.0.2",
     "rxjs": "~7.4.0",

@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class IdentyficationNumberGeneratorService {
 
-  constructor() { }
-
   generateId(): string{
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

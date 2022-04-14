@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NoRecipeChoosenComponent } from './no-recipe-choosen.component';
+import {MatCardModule} from "@angular/material/card";
 
 describe('NoRecipeChoosenComponent', () => {
   let component: NoRecipeChoosenComponent;
@@ -8,7 +9,8 @@ describe('NoRecipeChoosenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoRecipeChoosenComponent ]
+      declarations: [ NoRecipeChoosenComponent ],
+      imports: [MatCardModule]
     })
     .compileComponents();
   });

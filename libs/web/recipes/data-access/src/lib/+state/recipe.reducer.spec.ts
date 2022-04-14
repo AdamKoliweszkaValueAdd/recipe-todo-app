@@ -66,7 +66,7 @@ describe('Recipe Reducer', () => {
   describe('GetRecipeCollection', () => {
     test('sets recipeCollection, recipeCollectionLoading, recipeCollectionLoadError and does not modify other state properties', () => {
       const payload = {} as any;
-      const action = fromRecipeActions.getRecipeCollection({ payload });
+      const action = fromRecipeActions.getRecipeCollection();
       const result = recipeReducer(state, action);
 
       expect(result.recipeCollection).toEqual([]);

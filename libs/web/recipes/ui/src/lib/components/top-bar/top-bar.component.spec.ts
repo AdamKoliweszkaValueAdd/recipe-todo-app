@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopBarComponent } from './top-bar.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('TopBarComponent', () => {
   let component: TopBarComponent;
@@ -8,7 +9,8 @@ describe('TopBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopBarComponent ]
+      declarations: [ TopBarComponent ],
+      imports: [MatDialogModule]
     })
     .compileComponents();
   });

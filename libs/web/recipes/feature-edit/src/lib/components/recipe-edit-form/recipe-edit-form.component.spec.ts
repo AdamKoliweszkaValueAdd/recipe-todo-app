@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RecipeEditFormComponent } from './recipe-edit-form.component';
+import {RecipeEditFormComponent} from './recipe-edit-form.component';
+import {RecipeFacade} from "@recipes/data-access";
+import {Recipe} from "@recipes/domain";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('RecipeEditFormComponent', () => {
   let component: RecipeEditFormComponent;
@@ -8,9 +11,19 @@ describe('RecipeEditFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecipeEditFormComponent ]
+      declarations: [RecipeEditFormComponent],
+      imports: [RouterTestingModule],
+      providers: [
+        {
+          provide: RecipeFacade, useValue: {
+            createRecipe: (recipe: Recipe) => {
+              console.log(recipe);
+            }
+          }
+        },
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

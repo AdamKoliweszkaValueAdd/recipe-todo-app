@@ -2,7 +2,6 @@ import { createAction, props } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
   CreateRecipeRequestPayload,
-  GetRecipeCollectionRequestPayload,
   GetRecipeRequestPayload,
   RemoveRecipeRequestPayload,
   UpdateRecipeRequestPayload
@@ -42,7 +41,6 @@ export const getRecipeSuccess = createAction(Types.GetRecipeSuccess, props<{ pay
 
 export const getRecipeCollection = createAction(
   Types.GetRecipeCollection,
-  props<{ payload: GetRecipeCollectionRequestPayload }>()
 );
 
 export const getRecipeCollectionFail = createAction(

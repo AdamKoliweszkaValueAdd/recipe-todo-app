@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Recipe} from "@recipes/domain";
 
 @Component({
@@ -7,19 +7,13 @@ import {Recipe} from "@recipes/domain";
   styleUrls: ['./filtered-recipe-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FilteredRecipeListComponent implements OnInit {
+export class FilteredRecipeListComponent {
 
   @Input() recipes: Recipe[] | undefined | null;
 
   @Output() showDetail = new EventEmitter<Recipe>();
   @Output() removeRecipe = new EventEmitter<Recipe>();
   @Output() editRecipe = new EventEmitter<Recipe>();
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   onRemoveRecipe(recipe: Recipe) {
     this.removeRecipe.emit(recipe);

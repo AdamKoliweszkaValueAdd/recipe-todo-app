@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/co
 import {ActivatedRoute, Router} from "@angular/router";
 import {RecipeFacade} from "@recipes/data-access";
 import {Recipe} from "@recipes/domain";
-import {RecipeFormContentComponent} from "@recipes/ui";
 import {filter, pluck} from "rxjs";
+import {RecipeFormContentComponent} from "../recipe-form-content/recipe-form-content.component";
 
 @Component({
   selector: 'recipes-recipe-edit-form',

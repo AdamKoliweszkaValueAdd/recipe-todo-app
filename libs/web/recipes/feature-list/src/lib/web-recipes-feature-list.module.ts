@@ -12,10 +12,11 @@ import {RouterModule} from "@angular/router";
 import {FilteredRecipeListComponent} from "./components/filtered-recipe-list/filtered-recipe-list.component";
 import {RecipesListItemComponent} from "./components/recipes-list-item/recipes-list-item.component";
 import {MatListModule} from "@angular/material/list";
+import {DataAccessModule} from "@recipes/data-access";
 
 @NgModule({
   imports: [CommonModule, MatIconModule, UiModule, MatCardModule, MatInputModule,
-    ReactiveFormsModule, UtilsModule, MatButtonModule, RouterModule, MatListModule],
+    ReactiveFormsModule, UtilsModule, MatButtonModule, RouterModule, MatListModule,DataAccessModule],
   declarations: [RecipeListComponent, FilteredRecipeListComponent, RecipesListItemComponent],
   exports: [RecipeListComponent]
 })

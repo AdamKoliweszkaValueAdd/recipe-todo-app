@@ -24,5 +24,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "platform:web",
+    "type:util",
+    "scope:recipes"
+  ]
 }

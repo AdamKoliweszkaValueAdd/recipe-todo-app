@@ -1,10 +1,9 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Ingradient, Recipe} from "@recipes/domain";
-import {UniqueRecipeNameValidatorsService} from "@recipes/utils";
-import {
-  IdentyficationNumberGeneratorService
-} from "../../../../../utils/src/lib/services/identyfication-number-generator.service";
+import {IdentyficationNumberGeneratorService} from "@recipes/utils";
+import {UniqueRecipeNameValidatorsService} from "@recipes/data-access";
+
 
 @Component({
   selector: 'recipes-recipe-form-content',
@@ -12,7 +11,7 @@ import {
   styleUrls: ['./recipe-form-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeFormContentComponent implements OnInit {
+export class RecipeFormContentComponent {
 
   @Input() set recipeToEdit(recipeToEdit: Recipe | undefined | null) {
     this.recipeId = recipeToEdit?._id;
@@ -56,9 +55,6 @@ export class RecipeFormContentComponent implements OnInit {
   constructor(private uniqueRecipeNameValidatorsService: UniqueRecipeNameValidatorsService,
               private identyficationNumberGeneratorService: IdentyficationNumberGeneratorService) {
     this.nameControl?.addAsyncValidators([this.uniqueRecipeNameValidatorsService.createUniqueNameValidator(null)]);
-  }
-
-  ngOnInit(): void {
   }
 
   getIngradientNameControl(ingradientId: string) {

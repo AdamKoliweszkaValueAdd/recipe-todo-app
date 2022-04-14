@@ -45,9 +45,9 @@ describe('RecipeFacade', () => {
     describe('#getRecipeCollection', () => {
       test('should dispatch fromRecipeActions.getRecipeCollection action', () => {
         const payload = {} as any;
-        const action = fromRecipeActions.getRecipeCollection({ payload });
+        const action = fromRecipeActions.getRecipeCollection();
 
-        facade.getRecipeCollection(payload);
+        facade.getRecipeCollection();
         expect(store.dispatch).toHaveBeenCalledWith(action);
       });
     });

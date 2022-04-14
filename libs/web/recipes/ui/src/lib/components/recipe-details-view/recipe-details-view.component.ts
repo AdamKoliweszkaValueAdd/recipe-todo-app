@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import {Recipe} from "@recipes/domain";
 
 @Component({
@@ -7,13 +7,8 @@ import {Recipe} from "@recipes/domain";
   styleUrls: ['./recipe-details-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeDetailsViewComponent implements OnInit {
+export class RecipeDetailsViewComponent {
 
   @Input() recipe: Recipe | undefined | null;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

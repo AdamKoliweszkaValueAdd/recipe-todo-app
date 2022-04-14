@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Recipe} from "@recipes/domain";
-import {RecipeFacade} from "@recipes/data-access";
+import {MessageStatusDisplayerService, RecipeFacade} from "@recipes/data-access";
 import {FormControl} from "@angular/forms";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
-import {ConfirmationDialogServiceService} from "@recipes/utils";
+import {ConfirmationDialogServiceService} from "@recipes/web/recipes/dialogs-ui";
 
 @Component({
   selector: 'recipes-recipe-list',
@@ -12,14 +12,15 @@ import {ConfirmationDialogServiceService} from "@recipes/utils";
   styleUrls: ['./recipe-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent {
 
   searchedRecipe = new FormControl('');
 
   constructor(private recipeFacade: RecipeFacade, public dialog: MatDialog,
               private router: Router,
-              private confirmationDialogServiceService: ConfirmationDialogServiceService) {
-    this.recipeFacade.getRecipeCollection({});
+              private confirmationDialogServiceService: ConfirmationDialogServiceService,
+              private messageStatusDisplayerService: MessageStatusDisplayerService) {
+    this.recipeFacade.getRecipeCollection();
   }
 
   get recipeCollection$() {
@@ -28,9 +29,6 @@ export class RecipeListComponent implements OnInit {
 
   get recipesCollectionLoading$() {
     return this.recipeFacade.recipeCollectionLoading$;
-  }
-
-  ngOnInit(): void {
   }
 
   onRemoveRecipe(recipe: Recipe) {

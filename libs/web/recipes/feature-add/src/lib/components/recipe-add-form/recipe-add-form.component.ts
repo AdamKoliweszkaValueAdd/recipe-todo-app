@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {Recipe} from "@recipes/domain";
 import {RecipeFacade} from "@recipes/data-access";
-import {RecipeFormContentComponent} from "@recipes/ui";
+import {RecipeFormContentComponent} from "../recipe-form-content/recipe-form-content.component";
 
 @Component({
   selector: 'recipes-recipe-add-form',
@@ -14,7 +14,7 @@ export class RecipeAddFormComponent {
   @ViewChild("recipeFormContentComponent")
   recipeFormContentComponent: RecipeFormContentComponent | undefined;
 
-  constructor(private router: Router, private recipeFacade: RecipeFacade) {
+  constructor(private router: Router, public recipeFacade: RecipeFacade) {
   }
 
   onCancelForm() {
